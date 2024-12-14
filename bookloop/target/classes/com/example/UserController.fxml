@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.UserController">
+  <children>
+    <AnchorPane fx:id="anchorpane1" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <Pane fx:id="addbookPane" layoutY="101.0" prefHeight="124.0" prefWidth="359.0">
+               <children>
+                  <Button fx:id="addBookBtn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Add a book" />
+                  <TextField fx:id="bookNameText" layoutX="187.0" layoutY="8.0" promptText="enter book name" />
+                  <TextField fx:id="bookAuthorText" layoutX="187.0" layoutY="47.0" promptText="enter author" />
+                  <Button fx:id="addToTradebtn" layoutX="55.0" layoutY="81.0" mnemonicParsing="false" onAction="#addTrade" text="Add to trade" />
+                  <Button fx:id="markedAsReadbtn" layoutX="195.0" layoutY="81.0" mnemonicParsing="false" onAction="#display" text="markasReadbtn" />
+               </children>
+            </Pane>
+            <Pane fx:id="markedAsREadPane" layoutX="362.0" layoutY="5.0" prefHeight="360.0" prefWidth="271.0">
+               <children>
+                  <ScrollBar fx:id="scrollbar1" layoutX="249.0" layoutY="7.0" orientation="VERTICAL" prefHeight="346.0" prefWidth="16.0" />
+                  <Text fx:id="markedAsReadBaslik" layoutX="80.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marked As Read" />
+                  <Label fx:id="label1" layoutX="174.0" layoutY="52.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="profilePane" layoutX="17.0" layoutY="7.0" prefHeight="109.0" prefWidth="359.0" />
+            <Pane fx:id="willTradeBoooksPane" layoutY="225.0" prefHeight="142.0" prefWidth="359.0">
+               <children>
+                  <ScrollBar fx:id="scrollBar2" layoutX="337.0" layoutY="5.0" orientation="VERTICAL" prefHeight="130.0" prefWidth="16.0" />
+                  <Text fx:id="yourBooks" layoutX="14.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Books" wrappingWidth="119.28599548339844" />
+                  <Label fx:id="label2" layoutX="133.0" layoutY="49.0" />
+               </children>
+            </Pane>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
