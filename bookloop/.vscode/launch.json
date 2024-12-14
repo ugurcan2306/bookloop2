@@ -1,0 +1,60 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "com.example.App",
+            "projectName": "bookLoopProject"
+        },
+        {
+            "type": "java",
+            "name": "MainController",
+            "request": "launch",
+            "mainClass": "client.MainClient",
+            "projectName": "bookLoopProject",
+            "vmArgs": "--module-path \"C:/javafx-sdk-22/lib\" --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "mainServer",
+            "request": "launch",
+            "mainClass": "server.mainServer",
+            "projectName": "bookLoopProject",
+            "vmArgs": "--module-path \"C:/javafx-sdk-22/lib\" --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "ChatAppMain",
+            "request": "launch",
+            "mainClass": "chat.ChatAppMain",
+            "projectName": "bookLoopProject",
+            "vmArgs": "--module-path \"C:/javafx-sdk-22/lib\" --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "chat.Main",
+            "projectName": "bookLoopProject"
+        },
+        {
+            "type": "java",
+            "name": "MainForTrade",
+            "request": "launch",
+            "mainClass": "com.bookloop.MainForTrade",
+            "projectName": "bookLoopProject",
+            "vmArgs": "--module-path \"C:/javafx-sdk-22/lib\" --add-modules javafx.controls,javafx.fxml"
+        }
+    ]
+}
