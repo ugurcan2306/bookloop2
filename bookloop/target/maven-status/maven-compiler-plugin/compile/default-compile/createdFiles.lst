@@ -1,0 +1,9 @@
+com\bookloop\Main$1.class
+chat\Message.class
+com\bookloop\firestore\FirestoreUtils.class
+com\bookloop\Main.class
+chat\ChatHelper.class
+com\bookloop\firebase\FirebaseInit.class
+chat\FireStoreHelper.class
+chat\Main.class
+com\bookloop\firebase\FirebaseStorageUtils.class

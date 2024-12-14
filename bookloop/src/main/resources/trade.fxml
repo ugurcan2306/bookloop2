@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: blueberry;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller= "com.bookloop.ReceviedTradeController" >
+   <children>
+      <HBox layoutX="-1.0" prefHeight="63.0" prefWidth="600.0" style="-fx-background-color:rgb(140, 59, 59);">
+         <children>
+            <Label fx:id="TradeRequestLabel" prefHeight="54.0" prefWidth="306.0" text="TRADE REQUESTS" textFill="#efe3e3">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Pane fx:id="pane1" layoutX="-1.0" layoutY="73.0" prefHeight="85.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="label1booktrade" layoutX="178.0" layoutY="14.0" text="User121202 wants a book trade with you!">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="262.0" layoutY="46.0" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="Accept" />
+            <Button layoutX="368.0" layoutY="46.0" mnemonicParsing="false" style="-fx-background-color: red;" text="Reject" />
+         </children>
+      </Pane>
+      <Pane fx:id="pane2" layoutX="-1.0" layoutY="176.0" prefHeight="85.0" prefWidth="600.0">
+         <children>
+            <ImageView fitHeight="85.0" fitWidth="600.0" layoutX="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Downloads/istockphoto-587805156-612x612.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="175.0" layoutY="14.0" text="User123220 wants a book trade with you!">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="262.0" layoutY="46.0" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="Accept" />
+            <Button layoutX="368.0" layoutY="46.0" mnemonicParsing="false" style="-fx-background-color: red;" text="Reject" />
+         </children>
+      </Pane>
+      <Pane fx:id="pane3" layoutY="289.0" prefHeight="85.0" prefWidth="600.0">
+         <children>
+            <ImageView fitHeight="85.0" fitWidth="600.0" layoutX="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Downloads/istockphoto-587805156-612x612.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="175.0" layoutY="14.0" text="User122302 wants a book trade with you!">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="262.0" layoutY="46.0" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="Accept" />
+            <Button layoutX="368.0" layoutY="46.0" mnemonicParsing="false" style="-fx-background-color: red;" text="Reject" />
+         </children>
+      </Pane>
+      <Pane fx:id="pane4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: Blueberry;">
+         <children>
+            <HBox layoutX="-1.0" prefHeight="63.0" prefWidth="600.0" style="-fx-background-color: #BD5454;">
+               <children>
+                  <Label prefHeight="54.0" prefWidth="509.0" text="  RECEİVED TRADE REQUESTS" textFill="#efe3e3">
+                     <font>
+                        <Font size="37.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Pane layoutX="-1.0" layoutY="73.0" prefHeight="85.0" prefWidth="600.0">
+               <children>
+                  <ImageView fitHeight="85.0" fitWidth="600.0" layoutX="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@photo.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="178.0" layoutY="14.0" text="User121202 wants a book trade with you!">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="acceptButtonForUser1" layoutX="262.0" layoutY="46.0" mnemonicParsing="false" onAction="#AcceptButtonPressed1" style="-fx-background-color: lightblue;" text="Accept" />
+                  <Button layoutX="368.0" layoutY="46.0" mnemonicParsing="false" onAction="#RejectButtonPressed1" style="-fx-background-color: red;" text="Reject" />
+               </children>
+            </Pane>
+            <Pane layoutX="-1.0" layoutY="176.0" prefHeight="85.0" prefWidth="600.0">
+               <children>
+                  <ImageView fitHeight="85.0" fitWidth="600.0" layoutX="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@photo.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="175.0" layoutY="14.0" text="User123220 wants a book trade with you!">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="262.0" layoutY="46.0" mnemonicParsing="false" onAction="#AcceptButtonPressed2" style="-fx-background-color: lightblue;" text="Accept" />
+                  <Button layoutX="368.0" layoutY="46.0" mnemonicParsing="false" onAction="#RejectButtonPressed2" style="-fx-background-color: red;" text="Reject" />
+               </children>
+            </Pane>
+            <Pane layoutY="289.0" prefHeight="85.0" prefWidth="600.0">
+               <children>
+                  <ImageView fitHeight="85.0" fitWidth="600.0" layoutX="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@photo.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="175.0" layoutY="14.0" text="User122302 wants a book trade with you!">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="262.0" layoutY="46.0" mnemonicParsing="false" onAction="#AcceptButtonPressed3" style="-fx-background-color: lightblue;" text="Accept" />
+                  <Button layoutX="368.0" layoutY="46.0" mnemonicParsing="false" onAction="#RejectButtonPressed3" style="-fx-background-color: red;" text="Reject" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</Pane>
