@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="633.0" prefWidth="868.0" style="-fx-background-color: #BD5454;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.panelController">
+   <children>
+      <Text layoutX="43.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="For You" textAlignment="CENTER" wrappingWidth="781.6000366210938">
+         <font>
+            <Font name="Verdana Bold" size="36.0" />
+         </font>
+      </Text>
+      <AnchorPane layoutX="24.0" layoutY="25.0" prefHeight="583.0" prefWidth="1.0" style="-fx-background-color: WHITE;">
+         <effect>
+            <DropShadow />
+         </effect></AnchorPane>
+      <Pane layoutX="25.0" layoutY="608.0" prefHeight="1.0" prefWidth="822.0" style="-fx-background-color: WHITE;">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Pane>
+      <AnchorPane layoutX="845.0" layoutY="25.0" prefHeight="583.0" prefWidth="1.0" style="-fx-background-color: WHITE;">
+         <effect>
+            <DropShadow />
+         </effect></AnchorPane>
+      <Pane layoutX="24.0" layoutY="25.0" prefHeight="1.0" prefWidth="822.0" style="-fx-background-color: WHITE;">
+         <effect>
+            <DropShadow />
+         </effect></Pane>
+      <AnchorPane layoutX="184.0" layoutY="123.0" prefHeight="200.0" prefWidth="500.0">
+         <children>
+            <ImageView fitHeight="60.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Ekran%20görüntüsü%202024-11-11%20165114.png" />
+               </image>
+            </ImageView>
+            <Pane layoutY="200.0" prefHeight="1.0" prefWidth="500.0" style="-fx-background-color: WHITE;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Pane>
+            <Text layoutX="52.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IAM_AWORM">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Text>
+            <Pane layoutX="45.0" layoutY="50.0" prefHeight="110.0" prefWidth="410.0" style="-fx-background-color: WHITE;">
+               <children>
+                  <Pane layoutY="110.0" prefHeight="1.0" prefWidth="410.0" style="-fx-background-color: #674636;">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Pane>
+                  <Pane prefHeight="1.0" prefWidth="410.0" style="-fx-background-color: #674636;">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Pane>
+                  <Pane prefHeight="110.0" prefWidth="1.0" style="-fx-background-color: #674636;" />
+                  <Pane layoutX="410.0" prefHeight="110.0" prefWidth="1.0" style="-fx-background-color: #674636;" />
+                  <TextFlow layoutX="20.0" layoutY="20.0" prefHeight="70.0" prefWidth="370.0" textAlignment="JUSTIFY">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="I DON'T RECOMMEND THIS CRAZY BORING BOOK TO ANYONE!" textAlignment="JUSTIFY">
+                           <font>
+                              <Font name="Verdana" size="14.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </TextFlow>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Pane>
+            <ImageView fitHeight="57.0" fitWidth="34.0" layoutX="6.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../0000000202096-1.jpg" />
+               </image>
+            </ImageView>
+            <Text layoutX="52.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Montaigne - Essays" wrappingWidth="118.13677978515625">
+               <font>
+                  <Font name="Verdana" size="12.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="186.0" layoutY="363.0" prefHeight="200.0" prefWidth="500.0">
+         <children>
+            <ImageView fitHeight="60.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Ekran%20görüntüsü%202024-11-11%20165114.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="52.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USER_1984">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Text>
+            <Pane layoutX="45.0" layoutY="50.0" prefHeight="110.0" prefWidth="410.0" style="-fx-background-color: WHITE;">
+               <children>
+                  <Pane layoutY="110.0" prefHeight="1.0" prefWidth="410.0" style="-fx-background-color: #674636;">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Pane>
+                  <Pane prefHeight="1.0" prefWidth="410.0" style="-fx-background-color: #674636;">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Pane>
+                  <Pane prefHeight="110.0" prefWidth="1.0" style="-fx-background-color: #674636;" />
+                  <Pane layoutX="410.0" prefHeight="110.0" prefWidth="1.0" style="-fx-background-color: #674636;" />
+                  <TextFlow layoutX="20.0" layoutY="20.0" prefHeight="70.0" prefWidth="370.0" textAlignment="JUSTIFY">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ONE OF THE FINEST WORKS OF GEORGE ORWELL..." textAlignment="JUSTIFY">
+                           <font>
+                              <Font name="Verdana" size="14.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </TextFlow>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Pane>
+            <ImageView fitHeight="57.0" fitWidth="34.0" layoutX="6.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../animal_farm_cover2014.jpg" />
+               </image>
+            </ImageView>
+            <Text layoutX="53.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="George Orwell - Animal Farm" wrappingWidth="181.3367919921875">
+               <font>
+                  <Font name="Verdana" size="12.0" />
+               </font>
+            </Text>
+            <Pane layoutY="200.0" prefHeight="1.0" prefWidth="500.0" style="-fx-background-color: WHITE;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>
