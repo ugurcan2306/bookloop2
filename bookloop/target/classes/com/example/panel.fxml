@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="669.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.panelController">
+   <children>
+      <Pane fx:id="leftPane" prefHeight="669.0" prefWidth="150.0" style="-fx-background-color: #BD5454;">
+         <children>
+            <Button fx:id="forYouButton" layoutY="46.0" mnemonicParsing="false" onAction="#handleforYouButtonAction" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #662B2B;" text="FOR YOU" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold" size="10.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Button fx:id="profileButton" layoutY="76.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #662B2B;" text="PROFILE" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold" size="10.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Button fx:id="settingsButton" layoutY="106.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #662B2B;" text="SETTINGS" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold" size="10.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Text layoutX="34.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BookLoop" wrappingWidth="81.33670043945312">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Text>
+            <Button fx:id="tradeRequestsButton" layoutY="136.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #662B2B;" text="TRADE REQUESTS" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold" size="10.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Button fx:id="myTradeRequestsButton" layoutY="166.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #662B2B;" text="MY TRADE REQUESTS" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold" size="10.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Button fx:id="getRecommendationButton" layoutY="196.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #662B2B;" text="GET RECOMMENDATION" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold" size="10.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Button fx:id="chatsButton" layoutY="226.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #662B2B;" text="FRIENDS/CHATS" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold" size="10.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Button layoutY="256.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #662B2B;" text="LOG OUT" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold" size="10.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Pane layoutY="335.0" prefHeight="1.0" prefWidth="150.0" style="-fx-background-color: WHITE;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Pane>
+            <Text layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recommendations" textAlignment="CENTER" wrappingWidth="150.0">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Text>
+            <ImageView fitHeight="104.0" fitWidth="70.0" layoutX="41.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../600.jpeg" />
+               </image>
+            </ImageView>
+            <Text layoutX="21.0" layoutY="502.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pride and Prejudice Jane Austen" textAlignment="CENTER" wrappingWidth="107.8599853515625">
+               <font>
+                  <Font name="Verdana" size="10.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="104.0" fitWidth="67.0" layoutX="42.0" layoutY="531.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../Kitap_202406120010483699835.jpg" />
+               </image>
+            </ImageView>
+            <Text layoutX="21.0" layoutY="645.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Royal Game Stefan Zweig" textAlignment="CENTER" wrappingWidth="107.8599853515625">
+               <font>
+                  <Font name="Verdana" size="10.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane fx:id="rightPane" layoutX="790.0" prefHeight="669.0" prefWidth="150.0" style="-fx-background-color: #BD5454;">
+         <children>
+            <Text layoutX="25.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Group Chats" wrappingWidth="100.53665161132812">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Text>
+            <Text layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recommendations" textAlignment="CENTER" wrappingWidth="150.0">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Text>
+            <Pane layoutY="334.0" prefHeight="1.0" prefWidth="150.0" style="-fx-background-color: WHITE;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Pane>
+            <ImageView fitHeight="104.0" fitWidth="67.0" layoutX="41.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../81YLCnYkq-L.jpg" />
+               </image>
+            </ImageView>
+            <Text layoutX="21.0" layoutY="509.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Oedipus The King Sophocles" textAlignment="CENTER" wrappingWidth="107.8599853515625">
+               <font>
+                  <Font name="Verdana" size="10.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="127.0" fitWidth="67.0" layoutX="42.0" layoutY="523.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="104.0" fitWidth="81.0" layoutX="45.0" layoutY="523.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../0000000202096-1.jpg" />
+               </image>
+            </ImageView>
+            <Text layoutX="35.0" layoutY="637.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Essays Montaigne" textAlignment="CENTER" wrappingWidth="81.33670043945312">
+               <font>
+                  <Font name="Verdana" size="10.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="84.0" fitWidth="39.0" layoutX="22.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../animal_farm_cover2014.jpg" />
+               </image>
+            </ImageView>
+            <Text layoutX="66.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Animal Farm Discussion Group" wrappingWidth="67.38661193847656">
+               <font>
+                  <Font name="Verdana" size="12.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="58.0" fitWidth="39.0" layoutX="22.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../640px-To_Kill_a_Mockingbird_(first_edition_cover).jpg" />
+               </image>
+            </ImageView>
+            <Text layoutX="65.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To Kill A Mockingbird Discussion Group" wrappingWidth="74.58668518066406">
+               <font>
+                  <Font name="Verdana" size="12.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="72.0" fitWidth="39.0" layoutX="24.0" layoutY="233.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../71J74VzgaJL.jpg" />
+               </image>
+            </ImageView>
+            <Text layoutX="65.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Pearl Discussion Group" wrappingWidth="74.58668518066406">
+               <font>
+                  <Font name="Verdana" size="12.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane fx:id="topPane" layoutX="149.0" prefHeight="36.0" prefWidth="642.0" style="-fx-background-color: #BD5454;">
+         <children>
+            <TextField fx:id="searchBar" layoutX="110.0" layoutY="6.0" prefHeight="25.0" prefWidth="423.0" promptText="Try searching..." />
+         </children>
+      </Pane>
+      <BorderPane fx:id="centerPane" layoutX="149.0" layoutY="36.0" prefHeight="634.0" prefWidth="642.0" />
+   </children>
+</Pane>
