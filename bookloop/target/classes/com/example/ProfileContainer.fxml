@@ -33,14 +33,30 @@
 -->
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
-<VBox fx:id="profileComntainer" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ProfileContainer">
-  <children>
-    <AnchorPane fx:id="anchorPane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+<VBox fx:id="vbox" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ProfileContainer">
+   <children>
+      <AnchorPane fx:id="anchpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #BD5454;">
          <children>
-            <Button fx:id="btn" layoutX="250.0" layoutY="144.0" mnemonicParsing="false" onAction="#seeProfilebtn" text="Button" />
-         </children></AnchorPane>
-  </children>
+            <AnchorPane fx:id="booksPane" layoutX="82.0" layoutY="135.0" prefHeight="251.0" prefWidth="410.0">
+               <children>
+                  <Button fx:id="sortBtn" layoutX="7.0" layoutY="7.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="63.0" text="sort by" />
+                  <Button fx:id="filterBtn" layoutX="70.0" layoutY="7.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="45.0" text="filter" />
+                  <ScrollBar fx:id="scrollPane" layoutX="390.0" layoutY="7.0" orientation="VERTICAL" prefHeight="237.0" prefWidth="16.0" />
+                  <Label fx:id="label2" layoutX="14.0" layoutY="46.0" prefHeight="187.0" prefWidth="373.0" />
+                  <Button fx:id="sendReqBtn" layoutX="258.0" layoutY="7.0" mnemonicParsing="false" onAction="#sendReq" text="send trade request" />
+                  <TextField fx:id="chooseBookTextField" layoutX="115.0" layoutY="8.0" promptText="choose boook" />
+               </children>
+            </AnchorPane>
+            <Text fx:id="currBookText" layoutX="91.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Books" />
+            <AnchorPane fx:id="profilePane" layoutX="23.0" layoutY="14.0" prefHeight="87.0" prefWidth="200.0" />
+         </children>
+      </AnchorPane>
+   </children>
 </VBox>

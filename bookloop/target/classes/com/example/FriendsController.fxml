@@ -40,7 +40,7 @@
 
 <VBox fx:id="friendsContainer" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.FriendsController">
   <children>
-    <AnchorPane fx:id="anchorpane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane fx:id="anchorpane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: #BD5454;" VBox.vgrow="ALWAYS">
          <children>
             <Text fx:id="friendstext" layoutX="283.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FRIENDS" />
             <Button fx:id="addFriendbtn" layoutX="170.0" layoutY="54.0" mnemonicParsing="false" onAction="#addFriend" prefHeight="30.0" prefWidth="85.0" text="Add Friend" />

@@ -6,26 +6,10 @@
     "configurations": [
         {
             "type": "java",
-            "name": "App",
+            "name": "baska",
             "request": "launch",
-            "mainClass": "com.example.App",
+            "mainClass": "com.example.baska",
             "projectName": "bookLoopProject"
-        },
-        {
-            "type": "java",
-            "name": "MainController",
-            "request": "launch",
-            "mainClass": "client.MainClient",
-            "projectName": "bookLoopProject",
-            "vmArgs": "--module-path \"C:/javafx-sdk-22/lib\" --add-modules javafx.controls,javafx.fxml"
-        },
-        {
-            "type": "java",
-            "name": "mainServer",
-            "request": "launch",
-            "mainClass": "server.mainServer",
-            "projectName": "bookLoopProject",
-            "vmArgs": "--module-path \"C:/javafx-sdk-22/lib\" --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
@@ -35,18 +19,19 @@
         },
         {
             "type": "java",
-            "name": "ChatAppMain",
+            "name": "MainClient",
             "request": "launch",
-            "mainClass": "chat.ChatAppMain",
+            "mainClass": "client.MainClient",
             "projectName": "bookLoopProject",
-            "vmArgs": "--module-path \"C:/javafx-sdk-22/lib\" --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path /Users/ecenurkizikli/Desktop/javafx-sdk-23.0.1/lib --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
             "name": "Main",
             "request": "launch",
-            "mainClass": "chat.Main",
-            "projectName": "bookLoopProject"
+            "mainClass": "com.bookloop.Main",
+            "projectName": "bookLoopProject",
+            "vmArgs": "--module-path /Users/ecenurkizikli/Desktop/javafx-sdk-23.0.1/lib --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
@@ -54,7 +39,39 @@
             "request": "launch",
             "mainClass": "com.bookloop.MainForTrade",
             "projectName": "bookLoopProject",
-            "vmArgs": "--module-path \"C:/javafx-sdk-22/lib\" --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path /Users/ecenurkizikli/Desktop/javafx-sdk-23.0.1/lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "com.example.App",
+            "projectName": "bookLoopProject",
+            "vmArgs": "--module-path /Users/ecenurkizikli/Desktop/javafx-sdk-23.0.1/lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "FrameApp",
+            "request": "launch",
+            "mainClass": "com.example.FrameApp",
+            "projectName": "bookLoopProject",
+            "vmArgs": "--module-path /Users/ecenurkizikli/Desktop/javafx-sdk-23.0.1/lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "OnunApp",
+            "request": "launch",
+            "mainClass": "com.example.OnunApp",
+            "projectName": "bookLoopProject",
+            "vmArgs": "--module-path /Users/ecenurkizikli/Desktop/javafx-sdk-23.0.1/lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "mainServer",
+            "request": "launch",
+            "mainClass": "server.mainServer",
+            "projectName": "bookLoopProject",
+            "vmArgs": "--module-path /Users/ecenurkizikli/Desktop/javafx-sdk-23.0.1/lib --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }

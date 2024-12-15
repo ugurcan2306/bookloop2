@@ -34,41 +34,50 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.UserController">
+<VBox fx:id="profileContainer" prefHeight="400.0" prefWidth="640.0" style="-fx-background-color: #BD5454;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.UserController">
   <children>
-    <AnchorPane fx:id="anchorpane1" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane fx:id="anchorpane1" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: #BD5454;" VBox.vgrow="ALWAYS">
       <children>
-            <Pane fx:id="addbookPane" layoutY="101.0" prefHeight="124.0" prefWidth="359.0">
+            <Pane fx:id="addbookPane" layoutX="-1.0" layoutY="67.0" prefHeight="162.0" prefWidth="359.0" style="-fx-background-color: #BD5454;">
                <children>
-                  <Button fx:id="addBookBtn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Add a book" />
-                  <TextField fx:id="bookNameText" layoutX="187.0" layoutY="8.0" promptText="enter book name" />
-                  <TextField fx:id="bookAuthorText" layoutX="187.0" layoutY="47.0" promptText="enter author" />
-                  <Button fx:id="addToTradebtn" layoutX="55.0" layoutY="81.0" mnemonicParsing="false" onAction="#addTrade" text="Add to trade" />
-                  <Button fx:id="markedAsReadbtn" layoutX="195.0" layoutY="81.0" mnemonicParsing="false" onAction="#display" text="markasReadbtn" />
+                  <TextField fx:id="bookNameText" layoutX="117.0" layoutY="31.0" promptText="enter book name" />
+                  <Label fx:id="labelAddABook" layoutX="117.0" layoutY="6.0" prefHeight="17.0" prefWidth="126.0" text="     ADD A BOOK" />
+                  <Button fx:id="addToTradebtn" layoutX="64.0" layoutY="132.0" mnemonicParsing="false" onAction="#addTrade" text="Add to trade" />
+                  <Button fx:id="markedAsReadbtn" layoutX="208.0" layoutY="132.0" mnemonicParsing="false" onAction="#markAsRead" text="markasReadbtn" />
+                  <TextField fx:id="bookAuthorText1" layoutX="117.0" layoutY="56.0" promptText="enter author" />
+                  <TextField fx:id="bookgenretext" layoutX="117.0" layoutY="81.0" promptText="enter genre" />
                </children>
             </Pane>
-            <Pane fx:id="markedAsREadPane" layoutX="362.0" layoutY="5.0" prefHeight="360.0" prefWidth="271.0">
-               <children>
-                  <ScrollBar fx:id="scrollbar1" layoutX="249.0" layoutY="7.0" orientation="VERTICAL" prefHeight="346.0" prefWidth="16.0" />
-                  <Text fx:id="markedAsReadBaslik" layoutX="80.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marked As Read" />
-                  <Label fx:id="label1" layoutX="174.0" layoutY="52.0" />
-               </children>
-            </Pane>
-            <Pane fx:id="profilePane" layoutX="17.0" layoutY="7.0" prefHeight="109.0" prefWidth="359.0" />
-            <Pane fx:id="willTradeBoooksPane" layoutY="225.0" prefHeight="142.0" prefWidth="359.0">
-               <children>
-                  <ScrollBar fx:id="scrollBar2" layoutX="337.0" layoutY="5.0" orientation="VERTICAL" prefHeight="130.0" prefWidth="16.0" />
-                  <Text fx:id="yourBooks" layoutX="14.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Books" wrappingWidth="119.28599548339844" />
-                  <Label fx:id="label2" layoutX="133.0" layoutY="49.0" />
-               </children>
-            </Pane>
+            <ScrollPane fx:id="scrollpane" layoutY="235.63499450683594" style="-fx-background-color: #BD5454;">
+               <content>
+                  <VBox fx:id="addTradeVbox" prefHeight="162.0" prefWidth="303.0" style="-fx-background-color: #BD5454;">
+                     <children>
+                        <Label fx:id="label2">
+                           <graphic>
+                              <Text fx:id="yourBooks" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Books" wrappingWidth="119.28599548339844" />
+                           </graphic>
+                        </Label>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+            <ScrollPane fx:id="scrPane" layoutX="321.0" layoutY="7.0" prefHeight="386.0" prefWidth="317.0" style="-fx-background-color: #BD5454;">
+               <content>
+                  <VBox fx:id="markeVbox" prefHeight="420.0" prefWidth="324.0" style="-fx-background-color: #BD5454;">
+                     <children>
+                        <Label fx:id="label1" />
+                        <Text fx:id="markedAsReadBaslik" strokeType="OUTSIDE" strokeWidth="0.0" text="Marked As Read" />
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
       </children>
     </AnchorPane>
   </children>

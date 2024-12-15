@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox fx:id="vbox" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.forYouController">
+   <children>
+      <Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="633.0" prefWidth="868.0" style="-fx-background-color: #BD5454;">
+         <children>
+            <Text fx:id="foryoutext" layoutX="43.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="For You" textAlignment="CENTER" wrappingWidth="781.6000366210938">
+               <font>
+                  <Font name="Verdana Bold" size="36.0" />
+               </font>
+            </Text>
+            <AnchorPane fx:id="anchpane1" layoutX="24.0" layoutY="25.0" prefHeight="583.0" prefWidth="1.0" style="-fx-background-color: WHITE;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </AnchorPane>
+            <AnchorPane fx:id="anchpane2" layoutX="845.0" layoutY="25.0" prefHeight="583.0" prefWidth="1.0" style="-fx-background-color: WHITE;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </AnchorPane>
+            <Pane fx:id="pane2" layoutX="24.0" layoutY="25.0" prefHeight="1.0" prefWidth="822.0" style="-fx-background-color: WHITE;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Pane>
+            <AnchorPane fx:id="comms" layoutX="171.0" layoutY="193.0" prefHeight="347.0" prefWidth="632.0">
+               <children>
+                  <TextArea fx:id="textarea1" editable="false" layoutX="26.0" layoutY="14.0" prefHeight="143.0" prefWidth="580.0" />
+                  <TextArea fx:id="textarea2" editable="false" layoutX="26.0" layoutY="204.0" prefHeight="143.0" prefWidth="580.0" />
+               </children></AnchorPane>
+            <Button fx:id="displayCommBtn" layoutX="430.0" layoutY="139.0" mnemonicParsing="false" onAction="#displayComments" text="display comments" />
+         </children>
+      </Pane>
+   </children>
+</VBox>
