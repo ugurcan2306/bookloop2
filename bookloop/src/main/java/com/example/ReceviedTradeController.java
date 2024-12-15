@@ -1,4 +1,4 @@
-package com.bookloop;
+package com.example;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,13 +40,15 @@ public class ReceviedTradeController {
             Stage currentStage = (Stage) acceptButtonForUser1.getScene().getWindow();
             currentStage.close();
 
-            // Load the new FXML file for the different interface
-            Parent root= FXMLLoader.load(getClass().getResource("/server.fxml"));
-            Stage primaryStage= new Stage();
-            primaryStage.setScene(new Scene(root, 600, 400));
-            primaryStage.show();
-            primaryStage.setTitle("Server!");
-            
+        // Load the new FXML file for the different interface
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/bookloop/server.fxml"));
+        Parent root = loader.load();
+
+        // Set up the new stage
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root, 600, 400));
+        newStage.setTitle("Server!");
+        newStage.show();
         } catch (Exception e) {
             e.printStackTrace();  // Handle any exceptions that occur during loading
         }
@@ -79,4 +81,3 @@ public class ReceviedTradeController {
     }
 
 }
-

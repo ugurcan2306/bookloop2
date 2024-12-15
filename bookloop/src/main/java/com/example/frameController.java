@@ -1,10 +1,12 @@
 package com.example;
+
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle.Control;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
@@ -14,34 +16,62 @@ import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class frameController {
-
-    
     //private frameController frameController = new frameController();
     // fx:id of the container where you place the panel
 
     @FXML
-    void initialize() {
-        try {
+    void initialize(String fxml) {
+        //friendsChatsPane.getChildren().clear();
+        showFriendChat(fxml);
+        /*try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("UserController.fxml"));
             VBox panel = loader.load();
             profilePane.getChildren().add(panel);
         } catch (IOException e) {
             e.printStackTrace();
+        }*/
+    }
+    @FXML
+    void showForYouBtn(String fxml) {
+        /*friendsChatsPane.getChildren().clear();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("forYou.fxml"));
+            VBox panel = loader.load();
+            forYouPane.getChildren().add(panel);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
+    }
+    @FXML
+    void showFriendChat(String fxml) {
+        friendsChatsPane.getChildren().clear();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+            VBox panel = loader.load();
+            friendsChatsPane.getChildren().add(panel);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
     @FXML
-    void showFriendChat() {
+    void showRecTradeReqs(String fxml) {
+        friendsChatsPane.getChildren().clear();
+        /*URL resource = getClass().getResource("/com/bookloop/trade.fxml");
+        if (resource == null) {
+            System.out.println("Resource not found!");
+        } else {
+            System.out.println("Resource found: " + resource);
+        }*/
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("FriendsController.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
             VBox panel = loader.load();
-            profilePane.getChildren().add(panel);
+            tradeReqsPane.getChildren().add(panel);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -130,8 +160,6 @@ public class frameController {
 
     @FXML
     private AnchorPane profilePane;
-     @FXML
-    private StackPane stackPane = new StackPane();
 
     @FXML
     private Pane profilePane1;
@@ -208,6 +236,8 @@ public class frameController {
     @FXML
     private Text yourBooks;
 
+   
+
     @FXML
     void addTrade(ActionEvent event) {
         //frameController.addTrade(event);
@@ -230,13 +260,34 @@ public class frameController {
 
     @FXML
     void showForYou(ActionEvent event) {
+        /*forYouPane.setVisible(true);
+        profilePane.setVisible(false);
+        settingsPane.setVisible(false);
+        tradeReqsPane.setVisible(false);
+        myTradeReqsPane.setVisible(false);
+        getRecsPane.setVisible(false);
+        friendsChatsPane.setVisible(false);
+        logOutPane.setVisible(false);*/
+        friendsChatsPane.setVisible(true);
+        showFriendChat("forYou.fxml");
+
 
     }
 
     @FXML
     void showFriendsChats(ActionEvent event) {
-        showOnlyPane(friendsChatsPane);
-        showFriendChat();
+        /*forYouPane.setVisible(false);
+        profilePane.setVisible(false);
+        settingsPane.setVisible(false);
+        tradeReqsPane.setVisible(false);
+        myTradeReqsPane.setVisible(false);
+        getRecsPane.setVisible(false);
+        //friendsChatsPane.setVisible(false);
+        logOutPane.setVisible(false);*/
+
+        friendsChatsPane.setVisible(true);
+        showFriendChat("FriendsController.fxml");
+       // showOnlyPane(friendsChatsPane);
         
 
     }
@@ -249,9 +300,20 @@ public class frameController {
     @FXML
     void showProfile(ActionEvent event) {
         //recommendationsPlace.setText("Displaying profile information...");
-       
-        showOnlyPane(profilePane);
-        initialize();
+        /*forYouPane.setVisible(false);
+        profilePane.setVisible(true);
+        settingsPane.setVisible(false);
+        tradeReqsPane.setVisible(false);
+        myTradeReqsPane.setVisible(false);
+        getRecsPane.setVisible(false);
+        friendsChatsPane.setVisible(false);
+        logOutPane.setVisible(false);
+
+        profilePane.setVisible(true);
+        //friendsChatsPane.setVisible(false);*/
+        friendsChatsPane.setVisible(true);
+        initialize("UserController.fxml");
+        //showOnlyPane(profilePane);
 
     }
 
@@ -267,9 +329,19 @@ public class frameController {
 
     @FXML
     void showtradeReqs(ActionEvent event) {
+        /*forYouPane.setVisible(false);
+        profilePane.setVisible(false);
+        settingsPane.setVisible(false);
+        tradeReqsPane.setVisible(true);
+        myTradeReqsPane.setVisible(false);
+        getRecsPane.setVisible(false);
+        friendsChatsPane.setVisible(false);
+        logOutPane.setVisible(false);*/
+        friendsChatsPane.setVisible(true);
+        showFriendChat("/com/bookloop/trade.fxml");
 
     }
-    
+
     private void showOnlyPane(AnchorPane visiblePane) {
         forYouPane.setVisible(false);
         profilePane.setVisible(false);
@@ -282,6 +354,10 @@ public class frameController {
 
         if (visiblePane != null) {
             visiblePane.setVisible(true);
+            System.out.println("görünür 284");
+        }
+        else {
+            System.out.println("boş 286");;
         }
     }
 

@@ -48,9 +48,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="vbox" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #BD5454;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frameController">
+<VBox fx:id="vbox" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frameController">
   <children>
-    <MenuBar fx:id="menubar" style="-fx-background-color: #BD5454;" VBox.vgrow="ALWAYS">
+    <MenuBar fx:id="menubar" VBox.vgrow="NEVER">
       <menus>
         <Menu mnemonicParsing="false" text="File">
           <items>
@@ -89,9 +89,9 @@
         </Menu>
       </menus>
     </MenuBar>
-    <SplitPane fx:id="splitpane" dividerPositions="0.2795, 0.7661" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: #BD5454;" VBox.vgrow="ALWAYS">
+    <SplitPane fx:id="splitpane" dividerPositions="0.2795, 0.7661" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <items>
-        <AnchorPane fx:id="anchorpane" style="-fx-background-color: #BD5454;" SplitPane.resizableWithParent="false">
+        <AnchorPane fx:id="anchorpane" SplitPane.resizableWithParent="false">
           <children>
             <Label fx:id="text1" alignment="CENTER" layoutX="62.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="BookLoop" textAlignment="CENTER" wrapText="false">
               <font>
@@ -101,23 +101,19 @@
                 <Color red="0.624" green="0.624" blue="0.624" fx:id="x2" />
               </textFill>
             </Label>
-                  <AnchorPane fx:id="bokloopanch" layoutX="11.0" layoutY="58.0" prefHeight="264.0" prefWidth="210.0" style="-fx-background-color: #BD5454;">
+                  <AnchorPane fx:id="bokloopanch" layoutX="11.0" layoutY="58.0" prefHeight="264.0" prefWidth="210.0">
                      <children>
-                        <Button fx:id="foryoubtn" layoutX="38.0" layoutY="18.0" mnemonicParsing="false" onAction="#showForYou" prefHeight="26.0" prefWidth="150.0" text="FOR YOU" />
-                        <Button fx:id="profilebtn" layoutX="38.0" layoutY="48.0" mnemonicParsing="false" onAction="#showProfile" prefHeight="26.0" prefWidth="150.0" text="PROFILE" />
-                        <Button fx:id="settingsbtn" layoutX="38.0" layoutY="78.0" mnemonicParsing="false" onAction="#showSettings" prefHeight="26.0" prefWidth="150.0" text="SETTINGS" />
-                        <Button fx:id="tradebtn" layoutX="38.0" layoutY="108.0" mnemonicParsing="false" onAction="#showtradeReqs" prefHeight="26.0" prefWidth="150.0" text="TRADE REQUESTS" />
-                        <Button fx:id="mytradebtn" layoutX="38.0" layoutY="139.0" mnemonicParsing="false" onAction="#showMyTradeReqs" prefHeight="26.0" prefWidth="150.0" text="MY TRADE REQUESTS" />
-                        <Button fx:id="getrecbtn" layoutX="37.0" layoutY="170.0" mnemonicParsing="false" onAction="#showRecoms" prefHeight="26.0" prefWidth="150.0" text="GET RECOMMENDATIONS">
-                           <font>
-                              <Font size="11.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="friendchatbtn" layoutX="37.0" layoutY="199.0" mnemonicParsing="false" onAction="#showFriendsChats" prefHeight="26.0" prefWidth="150.0" text="FRIENDS/ CHATS" />
-                        <Button fx:id="logoutbtn" layoutX="37.0" layoutY="229.0" mnemonicParsing="false" onAction="#logOutBtn" prefHeight="26.0" prefWidth="150.0" text="LOG OUT" />
+                        <Button fx:id="foryoubtn" layoutX="61.0" layoutY="16.0" mnemonicParsing="false" onAction="#showForYou" text="FOR YOU" />
+                        <Button fx:id="profilebtn" layoutX="61.0" layoutY="46.0" mnemonicParsing="false" onAction="#showProfile" text="PROFILE" />
+                        <Button fx:id="settingsbtn" layoutX="61.0" layoutY="76.0" mnemonicParsing="false" onAction="#showSettings" text="SETTINGS" />
+                        <Button fx:id="tradebtn" layoutX="61.0" layoutY="106.0" mnemonicParsing="false" onAction="#showtradeReqs" text="TRADE REQUESTS" />
+                        <Button fx:id="mytradebtn" layoutX="61.0" layoutY="136.0" mnemonicParsing="false" onAction="#showMyTradeReqs" text="MY TRADE REQUESTS" />
+                        <Button fx:id="getrecbtn" layoutX="64.0" layoutY="164.0" mnemonicParsing="false" onAction="#showRecoms" text="GET RECOMMENDATIONS" />
+                        <Button fx:id="friendchatbtn" layoutX="64.0" layoutY="194.0" mnemonicParsing="false" onAction="#showFriendsChats" text="FRIENDS/ CHATS" />
+                        <Button fx:id="logoutbtn" layoutX="64.0" layoutY="224.0" mnemonicParsing="false" onAction="#logOutBtn" text="LOG OUT" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="recanch" layoutX="1.0" layoutY="332.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="211.0" prefWidth="220.0" style="-fx-background-color: #BD5454;">
+                  <AnchorPane fx:id="recanch" layoutX="1.0" layoutY="332.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="211.0" prefWidth="220.0">
                      <children>
                         <ScrollBar fx:id="scrol3" layoutX="51.0" layoutY="182.0" />
                         <Text fx:id="rectext" layoutX="57.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recommendations" />
@@ -125,9 +121,9 @@
                   </AnchorPane>
           </children>
         </AnchorPane>
-        <ScrollPane fx:id="scrollpane" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: #BD5454;" SplitPane.resizableWithParent="false">
+        <ScrollPane fx:id="scrollpane" prefHeight="-1.0" prefWidth="-1.0" SplitPane.resizableWithParent="false">
           <content>
-            <AnchorPane id="Content" fx:id="ortaanch" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="430.0">
+            <AnchorPane id="Content" fx:id="ortaanch" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="430.0">
               <children>
                         <AnchorPane fx:id="searchanch" layoutX="9.0" layoutY="2.0" prefHeight="42.0" prefWidth="413.0">
                            <children>
@@ -135,20 +131,27 @@
                               <Button fx:id="searchbtn" layoutX="355.0" layoutY="7.0" mnemonicParsing="false" onAction="#searchBtn" text="search" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="friendsChatsPane" layoutX="41.0" layoutY="93.0" prefHeight="314.0" prefWidth="290.0" style="-fx-background-color: #BD5454;" />
+                        <AnchorPane fx:id="forYouPane" layoutX="16.0" layoutY="57.0" prefHeight="200.0" prefWidth="200.0" visible="false" />
+                        <AnchorPane fx:id="settingsPane" layoutX="24.0" layoutY="308.0" prefHeight="200.0" prefWidth="200.0" />
+                        <AnchorPane fx:id="tradeReqsPane" layoutX="175.0" layoutY="273.0" prefHeight="200.0" prefWidth="200.0" />
+                        <AnchorPane fx:id="myTradeReqsPane" layoutX="216.0" layoutY="73.0" prefHeight="200.0" prefWidth="200.0" />
+                        <AnchorPane fx:id="logOutPane" prefHeight="200.0" prefWidth="200.0" />
+                        <AnchorPane fx:id="getRecsPane" prefHeight="200.0" prefWidth="200.0" />
+                        <AnchorPane fx:id="profilePane" prefHeight="314.0" prefWidth="298.0" />
+                        <AnchorPane fx:id="friendsChatsPane" prefHeight="200.0" prefWidth="200.0" />
               </children>
             </AnchorPane>
           </content>
         </ScrollPane>
-        <AnchorPane fx:id="groupchanch" prefHeight="577.0" prefWidth="424.0" style="-fx-background-color: #BD5454;" SplitPane.resizableWithParent="false">
+        <AnchorPane fx:id="groupchanch" prefHeight="577.0" prefWidth="424.0" SplitPane.resizableWithParent="false">
           <children>
-                  <AnchorPane fx:id="groupchanch" layoutX="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="321.0" prefWidth="200.0" style="-fx-background-color: #BD5454;">
+                  <AnchorPane fx:id="groupchanch" layoutX="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="321.0" prefWidth="200.0">
                      <children>
                         <ScrollBar fx:id="scrol2" layoutX="178.0" layoutY="13.0" orientation="VERTICAL" prefHeight="296.0" prefWidth="16.0" />
                         <Text fx:id="groupChats" layoutX="27.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Group Chats" wrappingWidth="119.50000000000003" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="recanch" layoutX="4.0" layoutY="337.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #BD5454;">
+                  <AnchorPane fx:id="recanch" layoutX="4.0" layoutY="337.0" prefHeight="200.0" prefWidth="200.0">
                      <children>
                         <ScrollBar fx:id="scroll1" layoutX="8.0" layoutY="179.0" prefHeight="16.0" prefWidth="193.0" />
                         <Text fx:id="reclabel" layoutX="37.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recommendations" />

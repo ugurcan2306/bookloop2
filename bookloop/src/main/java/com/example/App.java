@@ -14,6 +14,7 @@ public class App extends Application {
         primaryStage.setFullScreen(true);
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root));
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 

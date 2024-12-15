@@ -6,9 +6,16 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import com.google.cloud.firestore.DocumentReference;
+import com.google.cloud.firestore.Firestore;
+import com.example.FinderFromDatabase;
+
+import client.FireStoreHelper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
@@ -22,14 +29,17 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.scene.layout.HBox;
 
 
 public class FriendsController {
 
-    private User user = new User();
+    private User currentUser = SessionManager.getCurrentUser();
+    private User currentFriend;
     @FXML
     private ResourceBundle resources;
+    
 
     @FXML
     private URL location;
@@ -46,9 +56,13 @@ public class FriendsController {
     @FXML
     private VBox friendsContainer;
     @FXML
-    private ProfileContainer profileContainer;
+    private VBox profileCont;
+    @FXML
+    private ProfileContainer profileContainer ;
     
-
+    
+    
+    
     @FXML
     private Text friendstext;
 
@@ -61,38 +75,45 @@ public class FriendsController {
         assert anchorpane != null : "fx:id=\"anchorpane\" was not injected: check your FXML file 'Untitled.fxml'.";
         assert friendsContainer != null : "fx:id=\"friendsContainer\" was not injected: check your FXML file 'Untitled.fxml'.";
         assert friendstext != null : "fx:id=\"friendstext\" was not injected: check your FXML file 'Untitled.fxml'.";
-
+        
     }
 
     
 
-    public void setProfileContainer(ProfileContainer profileContainer) {
-        this.profileContainer = profileContainer; // Set the profileContainer when initializing
-    }
+   
     @FXML
-    void addFriend(ActionEvent event) {
+    void addFriend(ActionEvent event) throws Exception {
         String username = enterUsrnameField.getText();
         addFriend(username);
-        
+        enterUsrnameField.clear();
     }
 
-    // Method to add a new friend section
-    public void addFriend(String username) {
-        
-        HBox friendSection = new HBox(10); // Spacing of 10 between elements
+    public void addFriend(String username) throws Exception {
+        currentFriend = FinderFromDatabase.UserFinder(username);
+        profileContainer = new ProfileContainer(currentFriend);
+        profileContainer.setTradelencek();
 
-        // Create avatar placeholder (can be an ImageView instead)
-        Label avatar = new Label("👤"); // Replace with an actual ImageView for real avatars
-        avatar.setStyle("-fx-font-size: 36px;");
+        if (currentFriend != null) {
+            
+            Firestore db = FireStoreHelper.getFirestore();
+            DocumentReference userRef = db.collection("users").document(currentUser.getUsername());
+            userRef.update("Friends", currentUser.getFriends()).get();
+            currentUser.addToFriends(currentFriend);
+            
+            //SessionManager.loadFriendsForCurrentUser();
+            HBox friendSection = new HBox(10); // Spacing of 10 between elements
 
-        // Create username label
-        
-        Label usernameLabel = new Label(username);
+            // Create avatar placeholder (can be an ImageView instead)
+            Label avatar = new Label("👤"); // Replace with an actual ImageView for real avatars
+            avatar.setStyle("-fx-font-size: 36px;");
 
-        // Create buttons
-        Button seeProfileButton = new Button("See Profile");
-        Button startChatButton = new Button("Start Chat");
-        Button removeFriendButton = new Button("Remove Friend");
+            // Create username label
+            Label usernameLabel = new Label(username);
+
+            // Create buttons
+            Button seeProfileButton = new Button("See Profile");
+            Button startChatButton = new Button("Start Chat");
+            Button removeFriendButton = new Button("Remove Friend");
 
         // Add event handling (optional)
         seeProfileButton.setOnAction(event -> handleSeeProfile(event));
@@ -108,15 +129,32 @@ public class FriendsController {
 
         // Add the friend's section to the main VBox container
         friendsContainer.getChildren().add(friendSection);
-        
+
+        }
         // Create the HBox container for the friend's section
         
     }
     @FXML
 void handleSeeProfile(ActionEvent event) {
-    System.out.println("aaaaa");
-    friendsContainer.setVisible(false); // Hide friends container
-    profileContainer.setVisible(true); // Show profile container
+    try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("profileContainer.fxml"));
+        VBox panel = loader.load();
+        friendsContainer.getChildren().clear();
+        friendsContainer.getChildren().add(panel);
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+@FXML
+void handleStartChat(ActionEvent event) {
+    try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("client.fxml"));
+        VBox panel = loader.load();
+        friendsContainer.getChildren().clear();
+        friendsContainer.getChildren().add(panel);
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
 }
     
     

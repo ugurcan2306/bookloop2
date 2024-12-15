@@ -1,12 +1,18 @@
 package com.bookloop.firestore;
 
 import com.bookloop.firebase.FirebaseStorageUtils;
+import com.example.Book;
+import com.example.GroupChat;
+import com.example.OneToOneChat;
+import com.example.User;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.WriteResult;
 
 import java.awt.Image;
+
 import java.io.IOException;
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,29 +30,35 @@ public class FirestoreUtils {
 // -trade number
 // -person traded
 // -Chatler
-    public static void addUserToFirestore(Firestore db, String username, String password, String email,String Country, String City, List<String> booksToTrade,List<String> MarkedAsRead, ArrayList<String> GroupChat,ArrayList<String> OnetoOneChat,ArrayList<String> Friends ) {
+
+
+    public static void addUserToFirestore(Firestore db, String username, String password, String email,String Country, String City, ArrayList<Book> booksToTrade,ArrayList<Book> MarkedAsRead, ArrayList<GroupChat> GroupChat,ArrayList<OneToOneChat> OnetoOneChat,ArrayList<User> Friends ) {
         Map<String, Object> user = new HashMap<>();
         user.put("Username", username);
         user.put("Password", password);
-        user.put("email", email);
-        user.put("String", Country);
-        user.put("String", City);
-        user.put("Books to Trade", booksToTrade);
-        user.put("Marked as Read", MarkedAsRead);
-        user.put("Group Chat", GroupChat);
-        user.put("OneToOne Chat", OnetoOneChat);
+        user.put("Email", email);
+        user.put("Country", Country);
+        user.put("City", City);
+        user.put("BookstoTrade", booksToTrade);
+        user.put("MarkedasRead", MarkedAsRead);
+        user.put("GroupChat", GroupChat);
+        user.put("OneToOneChat", OnetoOneChat);
         user.put("Friends", Friends);
        
         try {
-            ApiFuture<WriteResult> result = db.collection("users").document(username).set(user);
-            System.out.println("Update time: " + result.get().getUpdateTime());
+            db.collection("users").document(username).set(user);
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
     public static void addedUsersToTheFirestore(Firestore db){
-        //List of Metodu immutabledır bilgin olsun. sıkıtnı yaratabilir
-        addUserToFirestore(db, "ugurcan23", "bilkentcs", "ugurcan@bilkent.edu.tr","Turkey", "Ankara",List.of("1984", "Animal Farm"), List.of("1984", "Animal Farm","InceMehmed"),new ArrayList<>(), new ArrayList<>(),new ArrayList<>());
+        //ArrayList<Book> booksttotrase= new ArrayList<>();
+        //booksttotrase.add(new Book("Animal Farm","George Orwell", "Fabl"));
+        //booksttotrase.add(new Book("1984","George Orwell", "Fabl"));
+        
+
+        //addUserToFirestore(db, "ugurcan23", "bilkentcs", "ugurcan@bilkent.edu.tr","Turkey", "Ankara",booksttotrase, booksttotrase,new ArrayList<>(), new ArrayList<>(),new ArrayList<>());
       
     }
     public static void addBookstoTheFirestore(Firestore db,String name, double rate, ArrayList<String> comments,ArrayList<String>bookowners, String description){

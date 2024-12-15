@@ -14,7 +14,7 @@ public class MainForTrade extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception  {
        
-        Parent root= FXMLLoader.load(getClass().getResource("/trade.fxml"));
+        Parent root= FXMLLoader.load(getClass().getResource("/com/bookloop/trade.fxml"));
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
         primaryStage.setTitle("Hello World!");
