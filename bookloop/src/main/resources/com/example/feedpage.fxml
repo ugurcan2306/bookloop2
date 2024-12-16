@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="feedpagepane" prefHeight="633.0" prefWidth="868.0" style="-fx-background-color: #BD5454;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.feedpageController">
+   <children>
+      <!-- Header Text -->
+      <Text fx:id="textForYou" layoutX="43.0" layoutY="91.0" strokeType="OUTSIDE" text="For You" wrappingWidth="781.6">
+         <font>
+            <Font name="Verdana Bold" size="36.0" />
+         </font>
+      </Text>
+
+      <!-- ScrollPane with VBox for Comments -->
+      <ScrollPane fx:id="scrollPaneFeedPage" layoutX="23.0" layoutY="122.0" prefHeight="430.0" prefWidth="822.0" style="-fx-background-color: transparent;">
+         <content>
+            <VBox fx:id="commentsContainer" prefWidth="800.0" spacing="10.0" style="-fx-background-color: #BD5454;" />
+         </content>
+      </ScrollPane>
+
+      <!-- Show More Button -->
+      <Button fx:id="showmorebtn" layoutX="408.0" layoutY="566.0" onAction="#handleShowMoreButton" text="Show More" />
+   </children>
+</Pane>

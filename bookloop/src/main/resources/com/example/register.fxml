@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="bigPaneRegister" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="600.0" style="-fx-background-color: #BD5454;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Register">
+   <children>
+      <Pane layoutX="128.0" layoutY="96.0" onDragDetected="#MiddlePaneRegister" prefHeight="410.0" prefWidth="343.0" style="-fx-background-color: FBFBFB; -fx-border-radius: 15px; -fx-background-radius: 15px;">
+         <children>
+            <Label fx:id="LableRegisterHere" layoutX="98.0" layoutY="46.0" prefHeight="39.0" prefWidth="138.0" text="Register Here">
+               <font>
+                  <Font name="Verdana" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="LabelUsername" layoutX="44.0" layoutY="133.0" prefHeight="25.0" prefWidth="72.0" text="Username:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="TextFieldUsernazme" layoutX="135.0" layoutY="125.0" />
+            <TextField fx:id="TextFieldEmail" layoutX="135.0" layoutY="152.0" />
+            <TextField fx:id="TextFieldCity" layoutX="135.0" layoutY="179.0" />
+            <Label fx:id="LabelEmail" layoutX="44.0" layoutY="164.0" prefHeight="18.0" prefWidth="45.0" text="Email:">
+               <font>
+                  <Font name="Verdana" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="LabelCity" layoutX="48.0" layoutY="193.0" prefHeight="18.0" prefWidth="45.0" text="City:">
+               <font>
+                  <Font name="Verdana" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="LabelCountry" layoutX="44.0" layoutY="222.0" prefHeight="18.0" prefWidth="58.0" text="County:">
+               <font>
+                  <Font name="Verdana" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="LabelPassword" layoutX="44.0" layoutY="254.0" prefHeight="18.0" prefWidth="72.0" text="Password:">
+               <font>
+                  <Font name="Verdana" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="TextFieldCountry" layoutX="135.0" layoutY="208.0" />
+            <PasswordField fx:id="PasswordFieldregister" layoutX="134.0" layoutY="242.0" />
+            <Label fx:id="LabelPasswordConfirm" layoutX="17.0" layoutY="288.0" text="Password Confirm:" />
+            <PasswordField fx:id="PasswordFieldRegister" layoutX="134.0" layoutY="275.0" />
+            <Button fx:id="BtnRegister" layoutX="96.0" layoutY="337.0" mnemonicParsing="false" onAction="#onRegisterClicked" prefHeight="39.0" prefWidth="164.0" style="-fx-background-color: #662B2B;" text="Register" />
+         </children>
+      </Pane>
+   </children>
+</Pane>
