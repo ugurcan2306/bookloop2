@@ -6,8 +6,6 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
-
-
 public class Main extends Application {
 
     private FirestoreService firestoreService;
@@ -23,27 +21,37 @@ public class Main extends Application {
         initializeMainWindow(primaryStage);
     }
 
+    // Ana pencereyi başlatan metod
     private void initializeMainWindow(Stage primaryStage) {
-        // Ana pencerede Chat ID ve Kullanıcı Adı girişi
+        // Kullanıcı adları giriş alanı
         VBox layout = new VBox(10);
-        TextField chatIdField = new TextField();
-        TextField usernameField = new TextField();
-        Button enterButton = new Button("Enter Chat");
+        TextField usernameField1 = new TextField();
+        TextField usernameField2 = new TextField();
+        Button enterButton = new Button("Start Chat");
 
-        layout.getChildren().addAll(new Label("Enter Chat ID:"), chatIdField, new Label("Enter your username:"), usernameField, enterButton);
+        layout.getChildren().addAll(
+            new Label("Enter first username:"), usernameField1, 
+            new Label("Enter second username:"), usernameField2, 
+            enterButton
+        );
         Scene scene = new Scene(layout, 300, 200);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Welcome to Chat");
+        primaryStage.setTitle("Start Chat");
         primaryStage.show();
 
+        // Buton tıklama işleyicisi
         enterButton.setOnAction(event -> {
-            String chatId = chatIdField.getText();
-            String username = usernameField.getText();
-            if (!chatId.isEmpty() && !username.isEmpty()) {
-                // Yeni bir sohbet penceresi aç
-                new ChatWindow(chatId, username);
+            String username1 = usernameField1.getText();
+            String username2 = usernameField2.getText();
+            if (!username1.isEmpty() && !username2.isEmpty()) {
+                // Firestore'da yeni chat ID'si oluştur
+                firestoreService.createChatIdForTwoUsers(username1, username2, chatId -> {
+                    // Yeni sohbet penceresini başlat
+                    new ChatWindow(chatId, username1);
+                    new ChatWindow(chatId, username2);
+                });
             } else {
-                showAlert("Error", "Please enter both Chat ID and Username.");
+                showAlert("Error", "Please enter both usernames.");
             }
         });
     }

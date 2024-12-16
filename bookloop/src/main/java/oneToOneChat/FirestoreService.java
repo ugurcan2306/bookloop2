@@ -1,106 +1,140 @@
 package oneToOneChat;
 
-import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
 import com.google.firebase.cloud.FirestoreClient;
+import com.google.api.core.ApiFuture;
 import javafx.application.Platform;
 import javafx.scene.control.TextArea;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 
 public class FirestoreService {
 
     private Firestore db;
 
+    // Yapıcı metod
     public FirestoreService() {
-        db = FirestoreClient.getFirestore();  // Firestore bağlantısı kuruyoruz
+        db = FirestoreClient.getFirestore();  // Firestore bağlantısını başlatıyoruz
     }
 
-    // Mesajı Firestore'a eklemek için metod
-    public void addMessageToChat(String chatId, String username, String messageContent) {
-        Map<String, Object> message = new HashMap<>();
-        message.put("username", username);
-        message.put("content", messageContent);
-        message.put("timestamp", FieldValue.serverTimestamp());  // Sunucu zaman damgası ekliyoruz
+    // Yeni bir chat ID'si oluşturur ve iki kullanıcıyı chat'e ekler
+    public void createChatIdForTwoUsers(String username1, String username2, ChatIdCallback callback) {
+    // Kullanıcı adlarını alfabetik sıraya göre sıralıyoruz
+    List<String> users = Arrays.asList(username1, username2);
+    Collections.sort(users);  // Alfabetik sıralama
+    
+    // İsimleri birleştirerek chatId oluşturuyoruz
+    String chatId = users.get(0) + "_" + users.get(1);
 
-        // Firestore koleksiyonuna mesajı ekliyoruz
+        // Chat verisini Firestore'a ekle
+        Map<String, Object> chatData = new HashMap<>();
+        chatData.put("users", Arrays.asList(username1, username2));  // Kullanıcılar listesi
+        chatData.put("createdAt", FieldValue.serverTimestamp());  // Chat oluşturulma zamanı
+
+        // Veriyi Firestore'a yazma
+        ApiFuture<WriteResult> future = db.collection("chats")
+                                          .document(chatId)
+                                          .set(chatData);
+
+        // Write işlemi tamamlandıktan sonra callback'i çağır
         try {
-            ApiFuture<DocumentReference> future = db.collection("chats")
-                    .document(chatId)
-                    .collection("messages")
-                    .add(message);
-
-            // get() ile senkronize alıyoruz
-            DocumentReference documentReference = future.get();
-            System.out.println("Message added with ID: " + documentReference.getId());
+            future.get();  // Bu, Firestore'a yazma işlemi tamamlanana kadar bekler
+            callback.onChatCreated(chatId);  // Chat oluşturulmuşsa callback ile chatId'yi döndür
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
     }
 
-    // Mesajları almak için metod (gerçek zamanlı dinleme)
-    public void getMessagesForChatRealTime(String chatId, TextArea messageArea) {
+    // Kullanıcıyı chat'e ekler
+    public void addUserToChat(String chatId, String username) {
+        // Firestore'dan chat belgesini alıyoruz
+        ApiFuture<DocumentSnapshot> future = db.collection("chats").document(chatId).get();
         try {
-            ApiFuture<QuerySnapshot> future = db.collection("chats")
-                    .document(chatId)
-                    .collection("messages")
-                    .orderBy("timestamp", Query.Direction.ASCENDING)
-                    .get();
+            DocumentSnapshot document = future.get();
+            if (document.exists()) {
+                List<String> users = (List<String>) document.get("users");
+                if (users != null && !users.contains(username)) {
+                    users.add(username);  // Kullanıcıyı listeye ekle
+                    ApiFuture<WriteResult> updateFuture = db.collection("chats")
+                                                             .document(chatId)
+                                                             .update("users", users);
+                    updateFuture.get();  // Veriyi güncellemek için bekle
+                }
+            }
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
 
-            QuerySnapshot querySnapshot = future.get();  // Veriyi senkronize alıyoruz
-            Platform.runLater(() -> {
-                messageArea.clear(); // Eski mesajları temizle
-                for (QueryDocumentSnapshot document : querySnapshot) {
-                    messageArea.appendText(document.getString("username") + ": " + document.getString("content") + "\n");
+    // Gerçek zamanlı olarak mesajları dinler
+    public void getMessagesForChatRealTime(String chatId, TextArea messageArea) {
+        // Firestore'dan mesajları gerçek zamanlı dinlemek için
+        db.collection("chats").document(chatId)
+            .collection("messages")
+            .orderBy("timestamp", Query.Direction.ASCENDING)
+            .addSnapshotListener((querySnapshot, e) -> {
+                if (e != null) {
+                    e.printStackTrace();
+                    return;
+                }
+    
+                // Mesajları ekrana yazdır
+                messageArea.clear(); // Önce mevcut mesajları temizle
+                for (DocumentSnapshot document : querySnapshot.getDocuments()) {
+                    String username = document.getString("sender");
+                    String message = document.getString("message");
+                    messageArea.appendText(username + ": " + message + "\n");
                 }
             });
+    }
+    
+
+    // Yeni bir mesajı chat'e ekler
+    public void addMessageToChat(String chatId, String sender, String message) {
+        Map<String, Object> messageData = new HashMap<>();
+        messageData.put("sender", sender);  // Mesajı gönderen kişi
+        messageData.put("message", message);  // Mesaj içeriği
+        messageData.put("timestamp", FieldValue.serverTimestamp());  // Mesajın zaman damgası
+
+        // Mesajı Firestore'a ekle
+        ApiFuture<DocumentReference> future = db.collection("chats")
+                                                 .document(chatId)
+                                                 .collection("messages")
+                                                 .add(messageData);
+
+        try {
+            future.get();  // Veriyi eklemek için bekle
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
     }
 
-    // Kullanıcı sayısını kontrol et
+    // Firestore'dan kullanıcı sayısını alır (chat'deki kullanıcı sayısı)
     public void checkUserCount(String chatId, UserCountCallback callback) {
-        try {
-            ApiFuture<QuerySnapshot> future = db.collection("chats")
-                    .document(chatId)
-                    .collection("users")
-                    .get();
+        ApiFuture<DocumentSnapshot> future = db.collection("chats")
+                                               .document(chatId)
+                                               .get();
 
-            QuerySnapshot querySnapshot = future.get();  // Veriyi senkronize alıyoruz
-            int userCount = querySnapshot.size();
-            callback.onUserCountChecked(userCount);
-        } catch (InterruptedException | ExecutionException e) {
-            e.printStackTrace();
-            callback.onUserCountChecked(0);
-        }
-    }
-
-    // Kullanıcıyı Firestore'a kaydetme
-    public void addUserToChat(String chatId, String username) {
-        Map<String, Object> user = new HashMap<>();
-        user.put("username", username);
-    
-        // get() metodunu kullanarak senkronize işlem yapıyoruz
         try {
-            // set() metodunu kullanarak, belirli bir belgeye veri ekliyoruz
-            ApiFuture<WriteResult> future = db.collection("chats")
-                    .document(chatId)
-                    .collection("users")
-                    .document(username)  // Belirli bir kullanıcı adıyla belge oluşturuyoruz
-                    .set(user);  // set() metodunu kullanıyoruz
-    
-            WriteResult result = future.get();  // Asenkron işlemi senkron hale getiriyoruz
-            System.out.println("User added at: " + result.getUpdateTime());  // WriteResult üzerinden işlem zamanı alıyoruz
+            DocumentSnapshot document = future.get();
+            if (document.exists()) {
+                List<String> users = (List<String>) document.get("users");
+                int userCount = (users != null) ? users.size() : 0;
+                callback.onUserCountChecked(userCount);
+            }
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
     }
-    
 
+    // Chat oluşturulunca callback ile bilgilendirilme
+    public interface ChatIdCallback {
+        void onChatCreated(String chatId);
+    }
+
+    // Kullanıcı sayısı alındığında callback ile bilgilendirilme
     public interface UserCountCallback {
-        void onUserCountChecked(int count);
+        void onUserCountChecked(int userCount);
     }
 }
