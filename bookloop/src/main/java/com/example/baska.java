@@ -8,6 +8,7 @@ public class baska {
     SessionManager.setCurrentUser("ugurcan23");
     System.out.println(SessionManager.getCurrentUser());
     Application.launch(App.class, args);
+    
 }
 
 }

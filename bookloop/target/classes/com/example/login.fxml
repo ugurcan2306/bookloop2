@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="paneeid" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.LoginControllerSon">
+   <children>
+      <SplitPane fx:id="splitpaneid" dividerPositions="0.3769276393831553" prefHeight="498.0" prefWidth="636.0" style="-fx-background-color: A52A2A;">
+        <items>
+          <AnchorPane fx:id="anchorid" minHeight="0.0" minWidth="0.0" prefHeight="497.0" prefWidth="251.0" style="-fx-background-color: #BD5454;">
+               <children>
+                  <ImageView fx:id="imageviewid" fitHeight="150.0" fitWidth="200.0" layoutX="39.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@booklogo.png" />
+                     </image>
+                  </ImageView>
+                  
+                                                      <!-- Corrected Line element -->
+                  <Line fx:id="lineiddeneme" endX="200.59999084472656" endY="267.0" startX="26.999996185302734" startY="267.0" stroke="black" strokeWidth="2.0" />
+      
+                                                <Label fx:id="booklooplabel" alignment="CENTER" layoutX="27.0" layoutY="231.0" prefHeight="36.0" prefWidth="173.0" text="BookLoop">
+                     <font>
+                        <Font name="Verdana Bold" size="23.0" />
+                     </font>
+                     <textFill>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </textFill>
+                  </Label>
+                  <Label fx:id="slogonlabel" alignment="CENTER" layoutX="27.0" layoutY="275.0" prefHeight="22.0" prefWidth="174.0" text="Start Book Trading!" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+          <AnchorPane fx:id="insideanchor" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: white;">
+               <children>
+                  <Label fx:id="secureLoginLabel" layoutX="134.0" layoutY="55.0" prefHeight="30.0" prefWidth="150.0" text="Secure Login">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="usernameLabel" layoutX="78.0" layoutY="178.0" text="Username" />
+                  <Label fx:id="passwordLabel" layoutX="79.0" layoutY="231.0" text="Password" />
+                  <TextField fx:id="usertextFieldid" layoutX="157.0" layoutY="170.0" />
+                  <PasswordField fx:id="passwordtextfieldLabel" layoutX="155.0" layoutY="222.0" />
+                  <Button fx:id="loginButtonid" layoutX="75.0" layoutY="308.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="243.0" style="-fx-background-color: #662B2B;" text="Login" />
+                  <Button fx:id="noAccountLabelid" layoutX="75.0" layoutY="358.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="243.0" style="-fx-background-color: #662B2B;" text="No Account? Register Now" />
+                  <Button fx:id="exitButton" layoutX="327.0" layoutY="445.0" mnemonicParsing="false" style="-fx-background-color: #662B2B;" text="Exit" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</Pane>

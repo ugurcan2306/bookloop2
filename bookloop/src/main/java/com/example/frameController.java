@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle.Control;
 
+import groupChat.chatWindowController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +23,9 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class frameController {
+    private User currentUser =SessionManager.getCurrentUser();
+    private User currentFriend;
+    private String chatId;
     //private frameController frameController = new frameController();
     // fx:id of the container where you place the panel
 
@@ -60,7 +64,22 @@ public class frameController {
         }
     }
     @FXML
-    void showRecTradeReqs(String fxml) {
+    void openGroupch(String fxml) {
+        friendsChatsPane.getChildren().clear();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+            VBox panel = loader.load();
+            friendsChatsPane.getChildren().add(panel);
+            chatWindowController controller = loader.getController();
+            //System.out.println(currentUser.getUsername());
+            controller.initializeChat(chatId, currentUser.getUsername()); 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void showRecTradeReqs(String fxml) throws IOException {
         friendsChatsPane.getChildren().clear();
         /*URL resource = getClass().getResource("/com/bookloop/trade.fxml");
         if (resource == null) {
@@ -68,13 +87,24 @@ public class frameController {
         } else {
             System.out.println("Resource found: " + resource);
         }*/
+        friendsChatsPane.getChildren().clear();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
             VBox panel = loader.load();
-            tradeReqsPane.getChildren().add(panel);
+            friendsChatsPane.getChildren().add(panel);
+            ReceivedTradeController received = loader.getController();
+            //traderequest objesi lazım
+            //TradeRequest tr = new TradeRequest();
+            //currentFriend.setUsername(tr.getSendername());
+            received.showRecRequests(currentUser.getUsername());
         } catch (IOException e) {
             e.printStackTrace();
         }
+        //FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/tradeRequest.fxml"));
+        //VBox panel = loader.load();
+        //loader.setController(ProfileContainer);
+        //ReceivedTradeController received = loader.getController();
+        //received.showRecRequests(currentUser.getUsername());
     }
 
     @FXML
@@ -235,6 +265,54 @@ public class frameController {
 
     @FXML
     private Text yourBooks;
+    @FXML
+    private Button groupCh1;
+
+    
+    @FXML
+    private Button groupch2;
+
+    @FXML
+    private Button groupch3;
+
+    @FXML
+    private Button groupch4;
+    @FXML
+    private ScrollPane scrpane;
+    @FXML
+    void goGroupCh1(ActionEvent event) {
+        friendsChatsPane.setVisible(true);
+        SessionManager.setCurrentUser("ugurcan23");
+        chatId = "animalfarm";
+        openGroupch("/chatWindow.fxml");
+    }
+
+    @FXML
+    void gogroupch2(ActionEvent event) {
+        friendsChatsPane.setVisible(true);
+        SessionManager.setCurrentUser("ugurcan23");
+        chatId = "1984";
+        openGroupch("/chatWindow.fxml");
+
+    }
+
+    @FXML
+    void gogroupch3(ActionEvent event) {
+        friendsChatsPane.setVisible(true);
+        SessionManager.setCurrentUser("ugurcan23");
+        chatId = "bravenewworld";
+        openGroupch("/chatWindow.fxml");
+
+    }
+
+    @FXML
+    void groupch4(ActionEvent event) {
+        friendsChatsPane.setVisible(true);
+        SessionManager.setCurrentUser("ugurcan23");
+        chatId = "fahrenheit451";
+        openGroupch("/chatWindow.fxml");
+
+    }
 
    
 
@@ -328,7 +406,7 @@ public class frameController {
     }
 
     @FXML
-    void showtradeReqs(ActionEvent event) {
+    void showtradeReqs(ActionEvent event) throws IOException {
         /*forYouPane.setVisible(false);
         profilePane.setVisible(false);
         settingsPane.setVisible(false);
@@ -337,8 +415,10 @@ public class frameController {
         getRecsPane.setVisible(false);
         friendsChatsPane.setVisible(false);
         logOutPane.setVisible(false);*/
+       
+
         friendsChatsPane.setVisible(true);
-        showFriendChat("/com/bookloop/trade.fxml");
+        showRecTradeReqs("tradeRequest.fxml");
 
     }
 

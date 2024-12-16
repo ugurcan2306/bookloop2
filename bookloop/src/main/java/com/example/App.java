@@ -10,6 +10,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        
         Parent root = FXMLLoader.load(getClass().getResource("/com/example/frameController.fxml"));
         primaryStage.setFullScreen(true);
         primaryStage.setTitle("Hello World");
@@ -20,6 +21,7 @@ public class App extends Application {
 
 
     public static void main(String[] args) {
+        SessionManager.setCurrentUser("ugurcan23");
         launch(args);
     }
 }

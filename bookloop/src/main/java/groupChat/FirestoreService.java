@@ -27,7 +27,7 @@ public class FirestoreService {
 
         // Firestore koleksiyonuna mesajı ekliyoruz
         try {
-            ApiFuture<DocumentReference> future = db.collection("chats")
+            ApiFuture<DocumentReference> future = db.collection("groupChats")
                     .document(chatId)
                     .collection("messages")
                     .add(message);
@@ -42,7 +42,7 @@ public class FirestoreService {
     // Mesajları almak için metod (gerçek zamanlı dinleme)
     public void getMessagesForChatRealTime(String chatId, TextArea messageArea) {
         // Firestore'dan mesajları dinliyoruz (real-time listener)
-        db.collection("chats")
+        db.collection("groupChats")
                 .document(chatId)
                 .collection("messages")
                 .orderBy("timestamp", Query.Direction.ASCENDING)
