@@ -144,8 +144,18 @@
           <children>
                   <AnchorPane fx:id="groupchanch" layoutX="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="321.0" prefWidth="200.0" style="-fx-background-color: #BD5454;">
                      <children>
-                        <ScrollBar fx:id="scrol2" layoutX="178.0" layoutY="13.0" orientation="VERTICAL" prefHeight="296.0" prefWidth="16.0" />
                         <Text fx:id="groupChats" layoutX="27.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Group Chats" wrappingWidth="119.50000000000003" />
+                        <ScrollPane fx:id="scrpane" layoutY="34.0" prefHeight="200.0" prefWidth="200.0">
+                          <content>
+                            <AnchorPane fx:id="scrollPane" minHeight="0.0" minWidth="0.0" prefHeight="290.0" prefWidth="195.0">
+                                 <children>
+                                    <Button fx:id="groupCh1" layoutX="58.0" layoutY="14.0" mnemonicParsing="false" onAction="#goGroupCh1" prefHeight="31.0" prefWidth="112.0" text="Animal Farm" />
+                                    <Button fx:id="groupch2" layoutX="57.0" layoutY="61.0" mnemonicParsing="false" onAction="#gogroupch2" prefHeight="31.0" prefWidth="112.0" text="1984" />
+                                    <Button fx:id="groupch3" layoutX="58.0" layoutY="114.0" mnemonicParsing="false" onAction="#gogroupch3" text="Brave New World" />
+                                    <Button fx:id="groupch4" layoutX="58.0" layoutY="162.0" mnemonicParsing="false" onAction="#groupch4" prefHeight="31.0" prefWidth="120.0" text="Fahrenheit 451" />
+                                 </children></AnchorPane>
+                          </content>
+                        </ScrollPane>
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="recanch" layoutX="4.0" layoutY="337.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #BD5454;">
