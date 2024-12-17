@@ -62,7 +62,7 @@
                   <DropShadow />
                </effect>
             </Button>
-            <Button fx:id="getRecommendationButton" layoutY="196.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #662B2B;" text="GET RECOMMENDATION" textFill="WHITE">
+            <Button fx:id="getRecommendationButton" layoutY="196.0" mnemonicParsing="false" onAction="#handleGetRecommendationButtonAction" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #662B2B;" text="GET RECOMMENDATION" textFill="WHITE">
                <font>
                   <Font name="Verdana Bold" size="10.0" />
                </font>
@@ -99,26 +99,7 @@
                   <DropShadow />
                </effect>
             </Text>
-            <ImageView fitHeight="104.0" fitWidth="70.0" layoutX="41.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../../../../600.jpeg" />
-               </image>
-            </ImageView>
-            <Text layoutX="21.0" layoutY="502.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pride and Prejudice Jane Austen" textAlignment="CENTER" wrappingWidth="107.8599853515625">
-               <font>
-                  <Font name="Verdana" size="10.0" />
-               </font>
-            </Text>
-            <ImageView fitHeight="104.0" fitWidth="67.0" layoutX="42.0" layoutY="531.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../../../../Kitap_202406120010483699835.jpg" />
-               </image>
-            </ImageView>
-            <Text layoutX="21.0" layoutY="645.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Royal Game Stefan Zweig" textAlignment="CENTER" wrappingWidth="107.8599853515625">
-               <font>
-                  <Font name="Verdana" size="10.0" />
-               </font>
-            </Text>
+            <Pane fx:id="familiarPane" layoutX="10.0" layoutY="370.0" prefHeight="290.0" prefWidth="130.0" />
          </children>
       </Pane>
       <Pane fx:id="rightPane" layoutX="790.0" prefHeight="669.0" prefWidth="150.0" style="-fx-background-color: #BD5454;">
@@ -144,27 +125,6 @@
                   <DropShadow />
                </effect>
             </Pane>
-            <ImageView fitHeight="104.0" fitWidth="67.0" layoutX="41.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../../../../81YLCnYkq-L.jpg" />
-               </image>
-            </ImageView>
-            <Text layoutX="21.0" layoutY="509.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Oedipus The King Sophocles" textAlignment="CENTER" wrappingWidth="107.8599853515625">
-               <font>
-                  <Font name="Verdana" size="10.0" />
-               </font>
-            </Text>
-            <ImageView fitHeight="127.0" fitWidth="67.0" layoutX="42.0" layoutY="523.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="104.0" fitWidth="81.0" layoutX="45.0" layoutY="523.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../../../../0000000202096-1.jpg" />
-               </image>
-            </ImageView>
-            <Text layoutX="35.0" layoutY="637.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Essays Montaigne" textAlignment="CENTER" wrappingWidth="81.33670043945312">
-               <font>
-                  <Font name="Verdana" size="10.0" />
-               </font>
-            </Text>
             <ImageView fitHeight="84.0" fitWidth="39.0" layoutX="22.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../../../../../../../animal_farm_cover2014.jpg" />
@@ -195,13 +155,33 @@
                   <Font name="Verdana" size="12.0" />
                </font>
             </Text>
+            <Pane fx:id="unfamiliarPane" layoutX="10.0" layoutY="370.0" prefHeight="290.0" prefWidth="130.0" />
          </children>
       </Pane>
       <Pane fx:id="topPane" layoutX="149.0" prefHeight="36.0" prefWidth="642.0" style="-fx-background-color: #BD5454;">
          <children>
             <TextField fx:id="searchBar" layoutX="110.0" layoutY="6.0" prefHeight="25.0" prefWidth="423.0" promptText="Try searching..." />
+            <Button fx:id="searchButton" layoutX="546.0" layoutY="6.0" mnemonicParsing="false" onAction="#handlesearchButtonAction" prefHeight="26.0" prefWidth="72.0" style="-fx-background-color: #662B2B;" text="Search" textFill="#fffcfc">
+               <font>
+                  <Font name="Verdana" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="filterButton" layoutX="461.0" layoutY="6.0" mnemonicParsing="false" onAction="#handlefilterButtonAction" prefHeight="24.0" prefWidth="72.0" style="-fx-background-color: #A6A6A6;" text="Filter" textFill="#fffcfc">
+               <font>
+                  <Font name="Verdana Bold" size="12.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
       <BorderPane fx:id="centerPane" layoutX="149.0" layoutY="36.0" prefHeight="634.0" prefWidth="642.0" />
+      <Pane fx:id="filterPane" layoutX="260.0" layoutY="30.0" prefHeight="290.0" prefWidth="423.0">
+         <children>
+            <Button fx:id="secretFilterButton" layoutX="337.0" layoutY="252.0" mnemonicParsing="false" onAction="#handlesecretFilterButtonAction" prefHeight="24.0" prefWidth="72.0" style="-fx-background-color: #A6A6A6;" text="Filter" textFill="#fffcfc">
+               <font>
+                  <Font name="Verdana Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
    </children>
 </Pane>
