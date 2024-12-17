@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0" prefHeight="634.0" prefWidth="642.0" style="-fx-background-color: #BD5454;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.searcbarSonucController">
+   <children>
+      <ScrollPane fx:id="scrollPane" layoutX="7.0" layoutY="52.0">
+         <content>
+            <Pane fx:id="pane" prefHeight="567.0" prefWidth="628.0" style="-fx-background-color: #BD5454;" />
+         </content>
+      </ScrollPane>
+      <Pane fx:id="sortPane" layoutX="14.0" prefHeight="50.0" prefWidth="420.0">
+         <children>
+            <RadioButton fx:id="rbAsName" layoutX="14.0" layoutY="5.0" mnemonicParsing="false" text="Sort by Ascending Name." />
+            <RadioButton fx:id="rbAsRating" layoutX="14.0" layoutY="27.0" mnemonicParsing="false" text="Sort by Ascending Rating." />
+            <RadioButton fx:id="rbDesName" layoutX="221.0" layoutY="5.0" mnemonicParsing="false" text="Sort by Descending Name." />
+            <RadioButton fx:id="rbDesRat" layoutX="221.0" layoutY="27.0" mnemonicParsing="false" text="Sort by Descending Rating." />
+         </children>
+      </Pane>
+      <Button fx:id="sortButton" layoutX="544.0" layoutY="13.0" mnemonicParsing="false" onAction="#handleSortButtonAction" prefHeight="24.0" prefWidth="72.0" style="-fx-background-color: #A6A6A6;" text="Sort" textFill="#fffcfc">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

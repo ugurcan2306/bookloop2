@@ -48,7 +48,11 @@ public class Main extends Application {
                 firestoreService.createChatIdForTwoUsers(username1, username2, chatId -> {
                     // Yeni sohbet penceresini başlat
                     new ChatWindow(chatId, username1);
+<<<<<<< HEAD
                     new ChatWindow(chatId, username2);
+=======
+                    //new ChatWindow(chatId, username2);
+>>>>>>> origin/main
                 });
             } else {
                 showAlert("Error", "Please enter both usernames.");

@@ -87,7 +87,7 @@ public class frameController {
         } else {
             System.out.println("Resource found: " + resource);
         }*/
-        friendsChatsPane.getChildren().clear();
+        //friendsChatsPane.getChildren().clear();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
             VBox panel = loader.load();
@@ -97,6 +97,34 @@ public class frameController {
             //TradeRequest tr = new TradeRequest();
             //currentFriend.setUsername(tr.getSendername());
             received.showRecRequests(currentUser.getUsername());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/tradeRequest.fxml"));
+        //VBox panel = loader.load();
+        //loader.setController(ProfileContainer);
+        //ReceivedTradeController received = loader.getController();
+        //received.showRecRequests(currentUser.getUsername());
+    }
+    @FXML
+    void showMyTradeReqs(String fxml) throws IOException {
+        friendsChatsPane.getChildren().clear();
+        /*URL resource = getClass().getResource("/com/bookloop/trade.fxml");
+        if (resource == null) {
+            System.out.println("Resource not found!");
+        } else {
+            System.out.println("Resource found: " + resource);
+        }*/
+        //friendsChatsPane.getChildren().clear();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+            VBox panel = loader.load();
+            friendsChatsPane.getChildren().add(panel);
+            myTradeReqsController sent = loader.getController();
+            //traderequest objesi lazım
+            //TradeRequest tr = new TradeRequest();
+            //currentFriend.setUsername(tr.getSendername());
+            sent.showMyRecRequests(currentUser.getUsername());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -138,13 +166,23 @@ public class frameController {
     private Button foryoubtn;
 
     @FXML
+    private AnchorPane anchRec1;
+    @FXML
     private Button friendchatbtn;
 
+    @FXML
+    private AnchorPane anchorPaneRec2;
     @FXML
     private AnchorPane friendsChatsPane;
 
     @FXML
     private AnchorPane getRecsPane;
+    @FXML
+    private ScrollPane scrPaneRec2;
+
+    @FXML
+    private ScrollPane scrPaneforRec1;
+
 
     @FXML
     private Button getrecbtn;
@@ -347,7 +385,7 @@ public class frameController {
         friendsChatsPane.setVisible(false);
         logOutPane.setVisible(false);*/
         friendsChatsPane.setVisible(true);
-        showFriendChat("forYou.fxml");
+        showFriendChat("forYouFeed.fxml");
 
 
     }
@@ -371,8 +409,9 @@ public class frameController {
     }
 
     @FXML
-    void showMyTradeReqs(ActionEvent event) {
-
+    void showMyTradeReqs(ActionEvent event) throws IOException {
+        friendsChatsPane.setVisible(true);
+        showMyTradeReqs("myTradeReqs.fxml");
     }
 
     @FXML

@@ -5,8 +5,13 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 
+<<<<<<< HEAD
 import com.example.firestore.FireStoreHelper;
 import com.example.firestore.FirestoreUtils;
+=======
+import client.FireStoreHelper;
+import com.bookloop.firestore.FirestoreUtils;
+>>>>>>> origin/main
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
@@ -153,10 +158,18 @@ public class LoginControllerSon {
         } else {
             for (QueryDocumentSnapshot document : querySnapshot.getDocuments()) {
                 String storedPassword = document.getString("Password");
+<<<<<<< HEAD
                 String storedUsername=document.getString("username");
                 if (storedPassword != null && storedPassword.equals(password) &&  storedUsername != null && storedUsername.equals(username)) {
                     
                     openRegisterPage();
+=======
+                String storedUsername=document.getString("Username");
+                if (storedPassword != null && storedPassword.equals(password) &&  storedUsername != null && storedUsername.equals(username)) {
+                    SessionManager.setCurrentUser(username);
+                    openTheApplication();
+                    
+>>>>>>> origin/main
                     return;
                 }
             }
@@ -172,10 +185,28 @@ public class LoginControllerSon {
         alert.showAndWait();
     }
 
+<<<<<<< HEAD
     private void openRegisterPage() {
         try {
           
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("register.fxml")); // Update the path
+=======
+    private void openTheApplication() {
+        try {
+          
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/frameController.fxml")); // Update the path
+            Scene registerScene = new Scene(fxmlLoader.load());
+            Stage stage = (Stage) loginButtonid.getScene().getWindow();
+            stage.setScene(registerScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void openRegisterPage() {
+        try {
+          
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/register.fxml")); // Update the path
+>>>>>>> origin/main
             Scene registerScene = new Scene(fxmlLoader.load());
             Stage stage = (Stage) loginButtonid.getScene().getWindow();
             stage.setScene(registerScene);
@@ -184,6 +215,10 @@ public class LoginControllerSon {
         }
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/main
 }
 //yapılacaklar//
 //feedpage zamana göre sırala

@@ -11,8 +11,13 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.List;
 
+<<<<<<< HEAD
 import com.example.firestore.FireStoreHelper;
 import com.example.firestore.FirestoreUtils;
+=======
+import client.FireStoreHelper;
+import com.bookloop.firestore.FirestoreUtils;
+>>>>>>> origin/main
 //import com.google.api.services.storage.Storage.BucketAccessControls.List;
 import com.google.cloud.firestore.Firestore;
 
@@ -156,9 +161,17 @@ public class Register {
                                 ArrayList<GroupChat> groupChats = new ArrayList<>();
                                 ArrayList<OneToOneChat> oneToOneChats = new ArrayList<>();
                                 ArrayList<User> friends = new ArrayList<>();
+<<<<<<< HEAD
 //TOOO DOOOO
                               //  FirestoreUtils.addUserToFirestore(db, username, password, email, country, city,
                                 ////                booksToTrade, markedAsRead,groupChats,oneToOneChats,friends);
+=======
+                                ArrayList<TradeRequest> receivedTradeRequest = new ArrayList<>();
+                                ArrayList<TradeRequest>  sentTradeRequests= new ArrayList<>();
+
+                                FirestoreUtils.addUserToFirestore(db, username, password, email, country, city,
+                                           booksToTrade, markedAsRead,groupChats,oneToOneChats,friends,receivedTradeRequest,sentTradeRequests);
+>>>>>>> origin/main
 
                                 Alert successAlert = new Alert(AlertType.INFORMATION, "Registration Successful!",
                                                 ButtonType.OK);

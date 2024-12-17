@@ -14,6 +14,10 @@ import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QuerySnapshot;
+<<<<<<< HEAD
+=======
+import com.google.firestore.v1.Document;
+>>>>>>> origin/main
 
 import client.FireStoreHelper;
 import groupChat.chatWindowController;
@@ -56,6 +60,7 @@ public class ReceivedTradeController {
         assert mainvbox != null : "fx:id=\"mainvbox\" was not injected: check your FXML file 'tradeRequest.fxml'.";
         loadRequestsFromFirestore();
     }
+<<<<<<< HEAD
     private void loadRequestsFromFirestore() throws IOException {
         try {
             Firestore db = FireStoreHelper.getFirestore();
@@ -81,6 +86,44 @@ public class ReceivedTradeController {
                     String receiverUsername = tradeRequest.getSendername();
                     showRecRequests(receiverUsername);
                 }
+=======
+    void loadRequestsFromFirestore() throws IOException {
+        try {
+            Firestore db = FireStoreHelper.getFirestore();
+            // Reference to the user document
+            DocumentReference userDocRef = db.collection("users")
+            .document(SessionManager.getCurrentUser().getUsername());
+    
+            // Fetch the document
+            DocumentSnapshot userDoc = userDocRef.get().get();
+           
+            // Check if the document exists and contains the ReceivedTradeRequests field
+            if (userDoc.exists()) {
+                // Retrieve the ReceivedTradeRequests field as a List of Maps
+                ArrayList<Map<String, Object>> receivedTradeRequests = (ArrayList<Map<String, Object>>) userDoc.get("ReceivedTradeRequests");
+    
+                if (receivedTradeRequests != null) {
+                    // Loop through each trade request map
+                    for (Map<String, Object> tradeRequestMap : receivedTradeRequests) {
+                        // Manually map the map to a TradeRequest object
+                        TradeRequest tradeRequest = new TradeRequest();
+                        
+                        // Assuming your TradeRequest class has methods to set the fields
+                        tradeRequest.setSendername((String) tradeRequestMap.get("sendername"));
+                        tradeRequest.setReceivername((String) tradeRequestMap.get("receivername"));
+                        // Add other fields as necessary
+    
+                        // Now you can use the tradeRequest object
+                        String receiverUsername = tradeRequest.getSendername();
+                        System.out.println("Received trade request from: " + receiverUsername);
+                        showRecRequests(receiverUsername);  // Call your method to display requests
+                    }
+                } else {
+                    System.out.println("No received trade requests found.");
+                }
+            } else {
+                System.out.println("User document does not exist.");
+>>>>>>> origin/main
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -88,9 +131,17 @@ public class ReceivedTradeController {
         }
     }
     
+<<<<<<< HEAD
     @FXML
     void showRecRequests(String username) throws IOException {
  //String username = receiverUsername;
+=======
+    
+    @FXML
+    void showRecRequests(String username) throws IOException {
+ //String username = receiverUsername;
+ User currentUser= SessionManager.getCurrentUser();
+>>>>>>> origin/main
     
     //currentFriend= FinderFromDatabase.UserFinder(username);
     HBox requestSection = new HBox(10); // Spacing of 10 between elements
@@ -111,11 +162,16 @@ public class ReceivedTradeController {
     acceptButton.setOnAction(event -> AcceptButtonPressed1(event));
     rejectButton.setOnAction(event -> {
         buttonluVbox.getChildren().remove(requestSection);
+<<<<<<< HEAD
         /*currentUser.getFriends().remove(FinderFromDatabase.UserFinder(currentFriend.getUsername()));
         
         System.out.println(currentUser.getFriends());
         System.out.println(currentUser.getFriends());
         System.out.println(currentUser.getFriends());
+=======
+        currentUser.getReceivedTradeRequests().remove(FinderFromDatabase.UserFinder(username));
+        
+>>>>>>> origin/main
         Firestore db;
             try {
                 db = FireStoreHelper.getFirestore();
@@ -124,7 +180,11 @@ public class ReceivedTradeController {
             } catch (IOException | InterruptedException | ExecutionException e) {
                 e.printStackTrace();
                
+<<<<<<< HEAD
             }*/
+=======
+            }
+>>>>>>> origin/main
     });
 
     // Add elements to the HBox
@@ -149,4 +209,8 @@ public class ReceivedTradeController {
         }
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/main

@@ -17,7 +17,11 @@ public class OnunApp extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+<<<<<<< HEAD
         scene = new Scene(loadFXML("/com/example/FriendsController"), 640, 480);
+=======
+        scene = new Scene(loadFXML("/com/example/forYouFeed"), 640, 480);
+>>>>>>> origin/main
         stage.setScene(scene);
         stage.show();
     }

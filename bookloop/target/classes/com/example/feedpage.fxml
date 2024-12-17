@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<<<<<<< HEAD
 <?import javafx.scene.control.Button?>
+=======
+>>>>>>> origin/main
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<<<<<<< HEAD
 <Pane fx:id="feedpagepane" prefHeight="633.0" prefWidth="868.0" style="-fx-background-color: #BD5454;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.feedpageController">
    <children>
       <!-- Header Text -->
@@ -27,3 +31,27 @@
       <Button fx:id="showmorebtn" layoutX="408.0" layoutY="566.0" onAction="#handleShowMoreButton" text="Show More" />
    </children>
 </Pane>
+=======
+
+<VBox fx:id="vbox" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.feedpageController">
+   <children>
+      <Pane fx:id="feedpagepane" prefHeight="633.0" prefWidth="868.0" style="-fx-background-color: #BD5454;">
+         <children>
+            <!-- Header Text -->
+            <Text fx:id="textForYou" layoutX="43.0" layoutY="91.0" strokeType="OUTSIDE" text="For You" wrappingWidth="781.6">
+               <font>
+                  <Font name="Verdana Bold" size="36.0" />
+               </font>
+            </Text>
+            <VBox fx:id="commentsContainer" layoutX="32.0" layoutY="156.0">
+               <children>
+            
+                              <!-- ScrollPane with VBox for Comments -->
+                  <ScrollPane fx:id="scrollPaneFeedPage" prefHeight="430.0" prefWidth="822.0" style="-fx-background-color: transparent;" />
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+   </children>
+</VBox>
+>>>>>>> origin/main

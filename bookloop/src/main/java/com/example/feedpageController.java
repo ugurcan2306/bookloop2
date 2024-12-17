@@ -8,7 +8,11 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 
+<<<<<<< HEAD
 import com.example.firestore.FireStoreHelper;
+=======
+import client.FireStoreHelper;
+>>>>>>> origin/main
 import com.google.api.core.ApiFuture;
 import com.google.api.services.storage.Storage.BucketAccessControls.List;
 import com.google.cloud.Date;
@@ -45,8 +49,11 @@ public class feedpageController {
     @FXML
     private AnchorPane anchorpaneOfFeedPage;
     @FXML
+<<<<<<< HEAD
     private Button showmorebtn;
     @FXML
+=======
+>>>>>>> origin/main
     private VBox commentsContainer;
 
     @FXML
@@ -132,6 +139,12 @@ public class feedpageController {
 
     @FXML
     private Text textyorum1;
+<<<<<<< HEAD
+=======
+   
+    @FXML
+    private VBox vbox;
+>>>>>>> origin/main
 
     private int likeCount = 0; // Variable to track total like count
     private int dislikeCount = 0;
@@ -145,7 +158,11 @@ public class feedpageController {
     void initialize() throws IOException {
         assert anchorpane2feedpage != null
                 : "fx:id=\"anchorpane2feedpage\" was not injected: check your FXML file 'feedpage.fxml'.";
+<<<<<<< HEAD
         assert showmorebtn != null : "fx:id=\"showmorebtn\" was not injected: check your FXML file 'feedpage.fxml'.";
+=======
+       
+>>>>>>> origin/main
         assert commentsContainer != null
                 : "fx:id=\"commentsContainer\" was not injected: check your FXML file 'feedpage.fxml'.";
         assert anchorpaneOfFeedPage != null
@@ -199,6 +216,10 @@ public class feedpageController {
                 : "fx:id=\"textforcomment2\" was not injected: check your FXML file 'feedpage.fxml'.";
         assert textforuser2 != null : "fx:id=\"textforuser2\" was not injected: check your FXML file 'feedpage.fxml'.";
         assert textyorum1 != null : "fx:id=\"textyorum1\" was not injected: check your FXML file 'feedpage.fxml'.";
+<<<<<<< HEAD
+=======
+        assert vbox != null : "fx:id=\"vbox\" was not injected: check your FXML file 'feedpage.fxml'.";
+>>>>>>> origin/main
 
         // labellikesayisi.setText(String.valueOf(likeCount));
         // labeldislikesayisi.setText(String.valueOf(dislikeCount));

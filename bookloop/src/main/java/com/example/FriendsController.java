@@ -17,12 +17,22 @@ import com.google.cloud.firestore.Firestore;
 import com.example.FinderFromDatabase;
 
 import client.FireStoreHelper;
+<<<<<<< HEAD
 import com.example.ProfileContainer;
+=======
+import groupChat.FirestoreService;
+import groupChat.chatWindowController;
+
+import com.example.ProfileContainer;
+
+import javafx.application.Platform;
+>>>>>>> origin/main
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
@@ -37,6 +47,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import oneToOneChat.WindowController;
 import javafx.scene.layout.HBox;
 
 
@@ -126,8 +137,11 @@ public class FriendsController {
 void addFriend(ActionEvent event) throws Exception {
     String username = enterUsrnameField.getText();
     
+<<<<<<< HEAD
 
     // Step 1: Handle database logic
+=======
+>>>>>>> origin/main
     boolean isFriendAdded = addFriendToDatabase(username);
 
     // Step 2: Update UI if the friend was added successfully
@@ -154,6 +168,10 @@ private boolean addFriendToDatabase(String username) throws Exception {
         // Add to local friend list and update Firestore
         currentUser.addToFriends(currentFriend);
         userRef.update("Friends", currentUser.getFriends()).get();
+<<<<<<< HEAD
+=======
+      
+>>>>>>> origin/main
 
         return true;
     }
@@ -186,7 +204,11 @@ void addFriendToUI(String username) throws IOException {
 
     // Add event handling
     seeProfileButton.setOnAction(event -> handleSeeProfile(event, username));
+<<<<<<< HEAD
     startChatButton.setOnAction(event -> vboxscr.setVisible(false));
+=======
+    startChatButton.setOnAction(event ->handleStartChat(event, username));
+>>>>>>> origin/main
     removeFriendButton.setOnAction(event -> {
         vboxscr.getChildren().remove(friendSection);
         currentUser.getFriends().remove(FinderFromDatabase.UserFinder(currentFriend.getUsername()));
@@ -230,15 +252,61 @@ void handleSeeProfile(ActionEvent event, String username) {
     }
 }
 @FXML
-void handleStartChat(ActionEvent event) {
+void handleStartChat(ActionEvent event, String username) {
+    oneToOneChat.FirestoreService firestoreService = new oneToOneChat.FirestoreService();
+    currentFriend= FinderFromDatabase.UserFinder(username);
     try {
+<<<<<<< HEAD
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/bookloop/client.fxml"));
         VBox panel = loader.load();
         vboxscr.getChildren().clear();
         vboxscr.getChildren().add(panel);
     } catch (IOException e) {
         e.printStackTrace();
-    }
+=======
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/one2onechatWindow.fxml"));
+            VBox panel = loader.load();
+            //friendsChatsPane.getChildren().add(panel);
+            WindowController controller = loader.getController();
+            //System.out.println(currentUser.getUsername());
+            String username1 = currentUser.getUsername();
+            String username2 = currentFriend.getUsername();
+            if (!username1.isEmpty() && !username2.isEmpty()) {
+                // Firestore'da yeni chat ID'si oluştur
+                firestoreService.createChatIdForTwoUsers(username1, username2, chatId -> {
+                    Platform.runLater(() -> {
+                    // Pass the chatId and username to the controller
+                    controller.initializeWindow(chatId, username1);
+
+                    // Update UI layout
+                    ustVbox.getChildren().clear();
+                    vboxscr.getChildren().clear();
+                    vboxscr.getChildren().add(panel);
+                });
+                    // Yeni sohbet penceresini başlat
+                    //new WindowController(chatId, username1);
+                    //new ChatWindow(chatId, username2);
+                    //controller.initializeWindow(chatId, currentUser.getUsername()); 
+                });
+                
+            } else {
+                showAlert("Error", "Please enter both usernames.");
+            }
+            ustVbox.getChildren().clear();
+            vboxscr.getChildren().clear();
+            vboxscr.getChildren().add(panel);
+        
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 }
+private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+>>>>>>> origin/main
+    }
     
 }

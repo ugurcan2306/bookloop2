@@ -11,7 +11,11 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         
+<<<<<<< HEAD
         Parent root = FXMLLoader.load(getClass().getResource("/com/example/frameController.fxml"));
+=======
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/login.fxml"));
+>>>>>>> origin/main
         primaryStage.setFullScreen(true);
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root));

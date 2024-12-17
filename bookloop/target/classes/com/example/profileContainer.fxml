@@ -36,21 +36,34 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <VBox fx:id="vbox" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ProfileContainer">
    <children>
-      <AnchorPane fx:id="anchpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #BD5454;">
+      <AnchorPane fx:id="anchpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
          <children>
             <AnchorPane fx:id="booksPane" layoutX="82.0" layoutY="135.0" prefHeight="251.0" prefWidth="410.0">
                <children>
-                  <Button fx:id="sortBtn" layoutX="7.0" layoutY="7.0" mnemonicParsing="false" onAction="#sortbtn" prefHeight="30.0" prefWidth="63.0" text="sort by" />
-                  <Button fx:id="filterBtn" layoutX="70.0" layoutY="7.0" mnemonicParsing="false" onAction="#filterbtn" prefHeight="17.0" prefWidth="45.0" text="filter" />
-                  <Button fx:id="sendReqBtn" layoutX="359.0" layoutY="7.0" mnemonicParsing="false" onAction="#sendReq" text="send trade request" />
+                  <Button fx:id="sortBtn" layoutX="7.0" layoutY="7.0" mnemonicParsing="false" onAction="#sortbtn" prefHeight="32.0" prefWidth="77.0" style="-fx-background-color: #652222;" text="sort by" textFill="WHITE">
+                     <font>
+                        <Font name="Bodoni 72 Oldstyle Bold" size="16.0" />
+                     </font></Button>
+                  <Button fx:id="filterBtn" layoutX="90.0" layoutY="7.0" mnemonicParsing="false" onAction="#filterbtn" prefHeight="30.0" prefWidth="63.0" style="-fx-background-color: #652222;" text="filter" textFill="WHITE">
+                     <font>
+                        <Font name="Bodoni 72 Oldstyle Bold" size="16.0" />
+                     </font></Button>
+                  <Button fx:id="sendReqBtn" layoutX="359.0" layoutY="7.0" mnemonicParsing="false" onAction="#sendReq" style="-fx-background-color: #652222;" text="Send trade request" textFill="WHITE">
+                     <font>
+                        <Font name="Bodoni 72 Oldstyle Bold" size="16.0" />
+                     </font></Button>
                   <VBox fx:id="bookVbox" layoutX="7.0" layoutY="44.0" prefHeight="200.0" prefWidth="489.0" />
                </children>
             </AnchorPane>
-            <Text fx:id="currBookText" layoutX="101.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Books" />
+            <Text fx:id="currBookText" layoutX="57.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Books">
+               <font>
+                  <Font name="Bodoni 72 Oldstyle Bold" size="23.0" />
+               </font></Text>
             <VBox fx:id="profileVbox" layoutX="23.0" layoutY="8.0">
                <children>
                   <HBox fx:id="profileSection" prefHeight="100.0" prefWidth="200.0" />

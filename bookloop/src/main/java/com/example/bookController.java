@@ -7,7 +7,11 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 
+<<<<<<< HEAD
 import com.example.firestore.FireStoreHelper;
+=======
+import client.FireStoreHelper;
+>>>>>>> origin/main
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
@@ -207,7 +211,11 @@ public class bookController {
                 book.setDescription(document.getString("Description"));
                 // book.setAuthor(document.getString());
                 // book.setComments((ArrayList<String>) document.get("Comments"));
+<<<<<<< HEAD
                 book.setRate(document.getDouble("Rate"));
+=======
+                //book.setRate(document.getDouble("Rate"));
+>>>>>>> origin/main
 
                 ArrayList<Map<String, Object>> profilesData = (ArrayList<Map<String, Object>>) document
                         .get("Bookowners");

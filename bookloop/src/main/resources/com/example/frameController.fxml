@@ -37,14 +37,12 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -93,34 +91,60 @@
       <items>
         <AnchorPane fx:id="anchorpane" style="-fx-background-color: #BD5454;" SplitPane.resizableWithParent="false">
           <children>
-            <Label fx:id="text1" alignment="CENTER" layoutX="62.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="BookLoop" textAlignment="CENTER" wrapText="false">
+            <Label fx:id="text1" alignment="CENTER" layoutX="50.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="BookLoop" textAlignment="CENTER" textFill="WHITE" wrapText="false">
               <font>
-                <Font size="18.0" fx:id="x1" />
+                <Font name="Bodoni 72 Oldstyle Bold" size="34.0" fx:id="x1" />
               </font>
-              <textFill>
-                <Color red="0.624" green="0.624" blue="0.624" fx:id="x2" />
-              </textFill>
             </Label>
                   <AnchorPane fx:id="bokloopanch" layoutX="11.0" layoutY="58.0" prefHeight="264.0" prefWidth="210.0" style="-fx-background-color: #BD5454;">
                      <children>
-                        <Button fx:id="foryoubtn" layoutX="38.0" layoutY="18.0" mnemonicParsing="false" onAction="#showForYou" prefHeight="26.0" prefWidth="150.0" text="FOR YOU" />
-                        <Button fx:id="profilebtn" layoutX="38.0" layoutY="48.0" mnemonicParsing="false" onAction="#showProfile" prefHeight="26.0" prefWidth="150.0" text="PROFILE" />
-                        <Button fx:id="settingsbtn" layoutX="38.0" layoutY="78.0" mnemonicParsing="false" onAction="#showSettings" prefHeight="26.0" prefWidth="150.0" text="SETTINGS" />
-                        <Button fx:id="tradebtn" layoutX="38.0" layoutY="108.0" mnemonicParsing="false" onAction="#showtradeReqs" prefHeight="26.0" prefWidth="150.0" text="TRADE REQUESTS" />
-                        <Button fx:id="mytradebtn" layoutX="38.0" layoutY="139.0" mnemonicParsing="false" onAction="#showMyTradeReqs" prefHeight="26.0" prefWidth="150.0" text="MY TRADE REQUESTS" />
-                        <Button fx:id="getrecbtn" layoutX="37.0" layoutY="170.0" mnemonicParsing="false" onAction="#showRecoms" prefHeight="26.0" prefWidth="150.0" text="GET RECOMMENDATIONS">
+                        <Button fx:id="foryoubtn" cache="true" layoutX="38.0" layoutY="18.0" mnemonicParsing="false" onAction="#showForYou" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #652222;" text="FOR YOU" textFill="WHITE">
                            <font>
-                              <Font size="11.0" />
+                              <Font name="Bodoni 72 Oldstyle Bold" size="13.0" />
+                           </font></Button>
+                        <Button fx:id="profilebtn" layoutX="38.0" layoutY="48.0" mnemonicParsing="false" onAction="#showProfile" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #652222;" text="PROFILE" textFill="WHITE">
+                           <font>
+                              <Font name="Bodoni 72 Oldstyle Bold" size="13.0" />
+                           </font></Button>
+                        <Button fx:id="settingsbtn" layoutX="38.0" layoutY="78.0" mnemonicParsing="false" onAction="#showSettings" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #652222;" text="SETTINGS" textFill="WHITE">
+                           <font>
+                              <Font name="Bodoni 72 Oldstyle Bold" size="13.0" />
+                           </font></Button>
+                        <Button fx:id="tradebtn" layoutX="38.0" layoutY="108.0" mnemonicParsing="false" onAction="#showtradeReqs" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #652222;" text="TRADE REQUESTS" textFill="WHITE">
+                           <font>
+                              <Font name="Bodoni 72 Oldstyle Bold" size="13.0" />
+                           </font></Button>
+                        <Button fx:id="mytradebtn" layoutX="38.0" layoutY="139.0" mnemonicParsing="false" onAction="#showMyTradeReqs" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #652222;" text="MY TRADE REQUESTS" textFill="WHITE">
+                           <font>
+                              <Font name="Bodoni 72 Oldstyle Bold" size="13.0" />
+                           </font></Button>
+                        <Button fx:id="getrecbtn" layoutX="37.0" layoutY="170.0" mnemonicParsing="false" onAction="#showRecoms" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #652222;" text="GET RECOMMENDATIONS" textFill="WHITE">
+                           <font>
+                              <Font name="Bodoni 72 Oldstyle Bold" size="12.0" />
                            </font>
                         </Button>
-                        <Button fx:id="friendchatbtn" layoutX="37.0" layoutY="199.0" mnemonicParsing="false" onAction="#showFriendsChats" prefHeight="26.0" prefWidth="150.0" text="FRIENDS/ CHATS" />
-                        <Button fx:id="logoutbtn" layoutX="37.0" layoutY="229.0" mnemonicParsing="false" onAction="#logOutBtn" prefHeight="26.0" prefWidth="150.0" text="LOG OUT" />
+                        <Button fx:id="friendchatbtn" layoutX="37.0" layoutY="199.0" mnemonicParsing="false" onAction="#showFriendsChats" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #652222;" text="FRIENDS/ CHATS" textFill="WHITE">
+                           <font>
+                              <Font name="Bodoni 72 Oldstyle Bold" size="13.0" />
+                           </font></Button>
+                        <Button fx:id="logoutbtn" layoutX="37.0" layoutY="229.0" mnemonicParsing="false" onAction="#logOutBtn" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #652222;" text="LOG OUT" textFill="WHITE">
+                           <font>
+                              <Font name="Bodoni 72 Oldstyle Bold" size="13.0" />
+                           </font></Button>
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="recanch" layoutX="1.0" layoutY="332.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="211.0" prefWidth="220.0" style="-fx-background-color: #BD5454;">
                      <children>
-                        <ScrollBar fx:id="scrol3" layoutX="51.0" layoutY="182.0" />
-                        <Text fx:id="rectext" layoutX="57.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recommendations" />
+                        <ScrollPane fx:id="scrPaneforRec1" layoutX="5.0" layoutY="46.0" prefHeight="158.0" prefWidth="216.0" style="-fx-background-color: #BD5454;">
+                          <content>
+                            <AnchorPane fx:id="anchRec1" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #BD5454;" />
+                          </content>
+                        </ScrollPane>
+                        <Text fx:id="rectext" layoutX="22.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recommendations" textAlignment="CENTER">
+                           <font>
+                              <Font name="Bodoni 72 Oldstyle Bold" size="23.0" />
+                           </font>
+                        </Text>
                      </children>
                   </AnchorPane>
           </children>
@@ -131,11 +155,14 @@
               <children>
                         <AnchorPane fx:id="searchanch" layoutX="9.0" layoutY="2.0" prefHeight="42.0" prefWidth="413.0">
                            <children>
-                              <TextField fx:id="searchtextf" layoutX="14.0" layoutY="8.0" prefHeight="26.0" prefWidth="341.0" text="Try searching..." />
-                              <Button fx:id="searchbtn" layoutX="355.0" layoutY="7.0" mnemonicParsing="false" onAction="#searchBtn" text="search" />
+                              <TextField fx:id="searchtextf" layoutX="14.0" layoutY="8.0" prefHeight="26.0" prefWidth="341.0" promptText="Try searching..." />
+                              <Button fx:id="searchbtn" layoutX="355.0" layoutY="7.0" mnemonicParsing="false" onAction="#searchBtn" style="-fx-background-color: #652222;" text="search" textFill="WHITE">
+                                 <font>
+                                    <Font name="Bodoni 72 Oldstyle Bold" size="13.0" />
+                                 </font></Button>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="friendsChatsPane" layoutX="41.0" layoutY="93.0" prefHeight="314.0" prefWidth="290.0" style="-fx-background-color: #BD5454;" />
+                        <AnchorPane fx:id="friendsChatsPane" layoutX="41.0" layoutY="93.0" prefHeight="314.0" prefWidth="290.0" />
               </children>
             </AnchorPane>
           </content>
@@ -144,26 +171,54 @@
           <children>
                   <AnchorPane fx:id="groupchanch" layoutX="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="321.0" prefWidth="200.0" style="-fx-background-color: #BD5454;">
                      <children>
-                        <Text fx:id="groupChats" layoutX="27.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Group Chats" wrappingWidth="119.50000000000003" />
-                        <ScrollPane fx:id="scrpane" layoutY="34.0" prefHeight="200.0" prefWidth="200.0">
+                        <Text fx:id="groupChats" fill="#3c2f2f" layoutX="45.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Group Chats" wrappingWidth="119.50000000000003">
+                           <font>
+                              <Font name="Bodoni 72 Oldstyle Bold" size="23.0" />
+                           </font></Text>
+                        <ScrollPane fx:id="scrpane" layoutY="34.0" prefHeight="200.0" prefWidth="198.0">
                           <content>
-                            <AnchorPane fx:id="scrollPane" minHeight="0.0" minWidth="0.0" prefHeight="290.0" prefWidth="195.0">
+                            <AnchorPane fx:id="scrollPane" minHeight="0.0" minWidth="0.0" prefHeight="290.0" prefWidth="192.0" style="-fx-background-color: #BD5454;">
                                  <children>
-                                    <Button fx:id="groupCh1" layoutX="58.0" layoutY="14.0" mnemonicParsing="false" onAction="#goGroupCh1" prefHeight="31.0" prefWidth="112.0" text="Animal Farm" />
-                                    <Button fx:id="groupch2" layoutX="57.0" layoutY="61.0" mnemonicParsing="false" onAction="#gogroupch2" prefHeight="31.0" prefWidth="112.0" text="1984" />
-                                    <Button fx:id="groupch3" layoutX="58.0" layoutY="114.0" mnemonicParsing="false" onAction="#gogroupch3" text="Brave New World" />
-                                    <Button fx:id="groupch4" layoutX="58.0" layoutY="162.0" mnemonicParsing="false" onAction="#groupch4" prefHeight="31.0" prefWidth="120.0" text="Fahrenheit 451" />
-                                 </children></AnchorPane>
+                                    <Button fx:id="groupCh1" layoutX="58.0" layoutY="14.0" mnemonicParsing="false" onAction="#goGroupCh1" prefHeight="31.0" prefWidth="112.0" style="-fx-background-color: #652222;" text="Animal Farm" textFill="WHITE">
+                                       <font>
+                                          <Font name="Bodoni 72 Oldstyle Bold" size="13.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="groupch2" layoutX="57.0" layoutY="61.0" mnemonicParsing="false" onAction="#gogroupch2" prefHeight="31.0" prefWidth="112.0" style="-fx-background-color: #652222;" text="1984" textFill="WHITE">
+                                       <font>
+                                          <Font name="Bodoni 72 Oldstyle Bold" size="13.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="groupch3" layoutX="58.0" layoutY="114.0" mnemonicParsing="false" onAction="#gogroupch3" style="-fx-background-color: #652222;" text="Brave New World" textFill="WHITE">
+                                       <font>
+                                          <Font name="Bodoni 72 Oldstyle Bold" size="13.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="groupch4" layoutX="58.0" layoutY="162.0" mnemonicParsing="false" onAction="#groupch4" prefHeight="31.0" prefWidth="120.0" style="-fx-background-color: #652222;" text="Fahrenheit 451" textFill="WHITE">
+                                       <font>
+                                          <Font name="Bodoni 72 Oldstyle Bold" size="13.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
                           </content>
                         </ScrollPane>
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="recanch" layoutX="4.0" layoutY="337.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #BD5454;">
                      <children>
-                        <ScrollBar fx:id="scroll1" layoutX="8.0" layoutY="179.0" prefHeight="16.0" prefWidth="193.0" />
-                        <Text fx:id="reclabel" layoutX="37.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recommendations" />
+                        <ScrollPane fx:id="scrPaneRec2" layoutX="6.0" layoutY="28.0" prefHeight="184.0" prefWidth="200.0" style="-fx-background-color: #BD5454;">
+                          <content>
+                            <AnchorPane fx:id="anchorPaneRec2" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="187.0" style="-fx-background-color: #BD5454;" />
+                          </content>
+                        </ScrollPane>
                      </children>
                   </AnchorPane>
+                  <Text fx:id="reclabel" layoutX="30.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recommendations" wrappingWidth="173.81100463867188">
+                     <font>
+                        <Font name="Bodoni 72 Oldstyle Bold" size="23.0" />
+                     </font>
+                  </Text>
           </children>
         </AnchorPane>
       </items>
