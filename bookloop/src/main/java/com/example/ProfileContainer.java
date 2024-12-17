@@ -85,7 +85,7 @@ public class ProfileContainer {
             e.printStackTrace();
         }
       
-        TradeRequest tr= new TradeRequest(currentUser, currentFriend);
+        TradeRequest tr= new TradeRequest(currentUser.getUsername(), currentFriend.getUsername());
         FirestoreUtils.addTradeRequeststoTheFirestore(db, tr);
         currentUser.getSentTradeRequests().add(tr);
         currentFriend.getReceivedTradeRequests().add(tr);
@@ -119,8 +119,8 @@ public class ProfileContainer {
     }
 
     @FXML
-    void profileView(User currentFriend){
-        //currentFriend= FinderFromDatabase.UserFinder(username);
+    void profileView(String userName){
+        currentFriend= FinderFromDatabase.UserFinder(userName);
         profileSection = new HBox(10); // Spacing of 10 between elements
 
         // Create avatar placeholder (can be an ImageView instead)
@@ -162,9 +162,9 @@ public class ProfileContainer {
         }
         
     }
-    public void setCurrentFriend(User currentFriend) {
+    /*public void setCurrentFriend(User currentFriend) {
         this.currentFriend = currentFriend;
-    }
+    }*/
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle(title);

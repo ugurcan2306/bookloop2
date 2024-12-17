@@ -1,7 +1,8 @@
-ackage com.bookloop.firestore;
+package com.bookloop.firestore;
 
 import com.bookloop.firebase.FirebaseStorageUtils;
 import com.example.Book;
+import com.example.Comment;
 import com.example.GroupChat;
 import com.example.OneToOneChat;
 import com.example.TradeRequest;
@@ -91,14 +92,18 @@ public class FirestoreUtils {
     public static void addedBooksToTheFirestore(Firestore db) throws IOException{
     
     ArrayList<Comment> comments= new ArrayList<>();
-    comments.add(new Comment("great", new User("a", "", "", "", ""),Timestamp.now()));
-    comments.add(new Comment("ok", new User("b", "", "", "", ""),Timestamp.now()));
+    comments.add(new Comment("great", "a",Timestamp.now(),"Animal farm"));
+    comments.add(new Comment("ok", "b",Timestamp.now(),"Animal Farm"));
+    ArrayList<Comment> comments1= new ArrayList<>();
+    comments1.add(new Comment("sudis", "a",Timestamp.now(),"1984"));
+    comments1.add(new Comment("aaaaatcam kendimi", "b",Timestamp.now(),"1984"));
     ArrayList<User> BookOwners= new ArrayList<>();
     BookOwners.add(new User("aa", "", "", "", ""));
     // Upload the image and get its URL
     
     // Store the image URL in Firestore
-        addBookstoTheFirestore(db, "Animal Farm","George Orwell","Fabl", 4.8, comments,BookOwners, "George Orwell's fable book published in 1945",5);
+    addBookstoTheFirestore(db, "1984","George Orwell","Fabl", 4.8, comments,BookOwners, "George Orwell's fable book published in 1945",5);    
+    addBookstoTheFirestore(db, "Animal Farm","George Orwell","Fabl", 4.8, comments1,BookOwners, "George Orwell's fable book published in 1945",5);
     }
 
     public static void addTradeRequeststoTheFirestore(Firestore db,TradeRequest tr){

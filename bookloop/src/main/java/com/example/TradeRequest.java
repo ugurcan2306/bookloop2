@@ -3,51 +3,59 @@ package com.example;
 import java.util.Objects;
 
 public class TradeRequest {
-    User Sender;
-    User Receiver;// sent trade request dediğinde algılıyacağız kimmiş
-    public TradeRequest(User sender,User receiver){
-        this.Sender=sender;
-        this.Receiver=receiver;
-    }
-    public TradeRequest(){
+    private String sendername;
+    private String receivername;
 
+    // Constructors
+    public TradeRequest(String sendername, String receivername) {
+        this.sendername = sendername;
+        this.receivername = receivername;
     }
-    public User getReceiver() {
-        return Receiver;
-    }
-    public User getSender() {
-        return Sender;
-    }
-    public void setReceiver(User receiver) {
-        Receiver = receiver;
-    }
-    public void setSender(User sender) {
-        Sender = sender;
-    }
-    public void acceptTrade(){
-        
-    }
-    public void declineTrade(){
 
+    public TradeRequest() {
     }
-    public void cancelTrade(){
 
+  public String getReceivername() {
+      return receivername;
+  }
+  public String getSendername() {
+      return sendername;
+  }
+  public void setReceivername(String receivername) {
+      this.receivername = receivername;
+  }
+  public void setSendername(String sendername) {
+      this.sendername = sendername;
+  }
+    // Methods
+    public void acceptTrade() {
+        // Implement logic to accept the trade request
     }
+
+    public void declineTrade() {
+        // Implement logic to decline the trade request
+    }
+
+    public void cancelTrade() {
+        // Implement logic to cancel the trade request
+    }
+
+    // Override Methods
     @Override
     public String toString() {
-        return "Sender: "+Sender+ " Receiver: "+ Receiver;
+        return "Sender: " + sendername + " Receiver: " + receivername;
     }
-    @Override
-    public boolean equals(Object obj) {
-    if (this == obj) return true; // Same object check
-    if (obj == null || getClass() != obj.getClass()) return false; // Null or different class check
-    
-    TradeRequest user = (TradeRequest) obj; // Cast the object to User
-    return Sender.equals(user.Sender) && // Username comparison
-           Receiver.equals(user.Receiver);
-    }
+
     @Override
     public int hashCode() {
-        return Objects.hash(Sender,Receiver); 
+        return Objects.hash(sendername, receivername);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        TradeRequest tr = (TradeRequest) obj;
+        return Objects.equals(sendername, tr.sendername) && Objects.equals(receivername, tr.receivername);
     }
 }

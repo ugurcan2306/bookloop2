@@ -62,7 +62,9 @@ public class Client {
 
                     CollectionReference messagesRef = db.collection("client messages");
                     ApiFuture<DocumentReference> result = messagesRef.add(messageData);
-                    
+                   
+
+
                     bufferedWriter.write(message);
                     bufferedWriter.newLine();
                     bufferedWriter.flush();

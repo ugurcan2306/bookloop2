@@ -4,8 +4,6 @@ import java.io.IOException;
 
 import com.bookloop.firebase.FirebaseInit;
 import com.bookloop.firestore.FirestoreUtils;
-import com.example.TradeRequest;
-import com.example.User;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.FirestoreOptions;
 
@@ -26,7 +24,6 @@ public class Main {
         // Add users to Firestore
        FirestoreUtils.addedUsersToTheFirestore(db);
        FirestoreUtils.addedBooksToTheFirestore(db);
-       FirestoreUtils.addTradeRequeststoTheFirestore(db, new TradeRequest(new User("ugurcan23", null, null, null, null),new User("ece", null, null, null, null)) );
         // Set up real-time listeners for Firestore
         setupRealTimeListeners(db);
         keepApplicationRunning();

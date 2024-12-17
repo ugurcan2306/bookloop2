@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fx:id="scrollPane" fitToWidth="true" style="-fx-background: #A23E3E;"
+            xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.CommentsDisplayController">
+    <VBox fx:id="commentsContainer" spacing="15" alignment="TOP_CENTER"
+          style="-fx-background-color: #A23E3E;" padding="20">
+        <!-- Dinamik olarak eklenecek yorumlar -->
+    </VBox>
+</ScrollPane>

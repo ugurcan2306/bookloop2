@@ -2,7 +2,6 @@ package com.example;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import com.bookloop.firestore.Comment;
 public class Book {
     String Name;
     String Author;

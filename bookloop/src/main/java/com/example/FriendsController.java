@@ -8,6 +8,8 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 
+import org.checkerframework.checker.units.qual.C;
+
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
@@ -15,12 +17,18 @@ import com.google.cloud.firestore.Firestore;
 import com.example.FinderFromDatabase;
 
 import client.FireStoreHelper;
+import groupChat.FirestoreService;
+import groupChat.chatWindowController;
+
 import com.example.ProfileContainer;
+
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
@@ -35,6 +43,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import oneToOneChat.WindowController;
 import javafx.scene.layout.HBox;
 
 
@@ -124,8 +133,6 @@ public class FriendsController {
 void addFriend(ActionEvent event) throws Exception {
     String username = enterUsrnameField.getText();
     
-
-    // Step 1: Handle database logic
     boolean isFriendAdded = addFriendToDatabase(username);
 
     // Step 2: Update UI if the friend was added successfully
@@ -152,8 +159,15 @@ private boolean addFriendToDatabase(String username) throws Exception {
         // Add to local friend list and update Firestore
         currentUser.addToFriends(currentFriend);
         userRef.update("Friends", currentUser.getFriends()).get();
+      
 
         return true;
+    }
+    if (currentUser.getFriends().contains(currentFriend)) {
+        System.out.println("you did it");
+        System.out.println("you did it");
+        System.out.println("you did it");
+        System.out.println("you did it");
     }
 
     return false; // Friend not found
@@ -177,8 +191,8 @@ void addFriendToUI(String username) throws IOException {
     Button removeFriendButton = new Button("Remove Friend");
 
     // Add event handling
-    seeProfileButton.setOnAction(event -> handleSeeProfile(event));
-    startChatButton.setOnAction(event -> vboxscr.setVisible(false));
+    seeProfileButton.setOnAction(event -> handleSeeProfile(event, username));
+    startChatButton.setOnAction(event ->handleStartChat(event, username));
     removeFriendButton.setOnAction(event -> {
         vboxscr.getChildren().remove(friendSection);
         currentUser.getFriends().remove(FinderFromDatabase.UserFinder(currentFriend.getUsername()));
@@ -203,37 +217,71 @@ void addFriendToUI(String username) throws IOException {
     // Add the friend's section to the main VBox container
     vboxscr.getChildren().add(friendSection);
 }
-@FXML
-void handleSeeProfile(ActionEvent event) {
+    @FXML
+void handleSeeProfile(ActionEvent event, String username) {
+    currentFriend= FinderFromDatabase.UserFinder(username);
     try {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/profileContainer.fxml"));
         VBox panel = loader.load();
         //loader.setController(ProfileContainer);
         ProfileContainer profileContainer = loader.getController();
         profileContainer.setTradelencek(currentFriend);
-        profileContainer.setCurrentFriend(currentFriend);
-        profileContainer.profileView(currentFriend);
+        //profileContainer.setCurrentFriend(currentFriend);
+        profileContainer.profileView(username);
         ustVbox.getChildren().clear();
-        vboxscr.getChildren().clear();
-        vboxscr.getChildren().add(panel);
-    } catch (IOException e) {
-        e.printStackTrace();}
-        
-}
-
-@FXML
-void handleStartChat(ActionEvent event) {
-    try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/bookloop/client.fxml"));
-        VBox panel = loader.load();
         vboxscr.getChildren().clear();
         vboxscr.getChildren().add(panel);
     } catch (IOException e) {
         e.printStackTrace();
     }
 }
-public User getCurrentFriend() {
-    return currentFriend;
+@FXML
+void handleStartChat(ActionEvent event, String username) {
+    oneToOneChat.FirestoreService firestoreService = new oneToOneChat.FirestoreService();
+    currentFriend= FinderFromDatabase.UserFinder(username);
+    try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/one2onechatWindow.fxml"));
+            VBox panel = loader.load();
+            //friendsChatsPane.getChildren().add(panel);
+            WindowController controller = loader.getController();
+            //System.out.println(currentUser.getUsername());
+            String username1 = currentUser.getUsername();
+            String username2 = currentFriend.getUsername();
+            if (!username1.isEmpty() && !username2.isEmpty()) {
+                // Firestore'da yeni chat ID'si oluştur
+                firestoreService.createChatIdForTwoUsers(username1, username2, chatId -> {
+                    Platform.runLater(() -> {
+                    // Pass the chatId and username to the controller
+                    controller.initializeWindow(chatId, username1);
+
+                    // Update UI layout
+                    ustVbox.getChildren().clear();
+                    vboxscr.getChildren().clear();
+                    vboxscr.getChildren().add(panel);
+                });
+                    // Yeni sohbet penceresini başlat
+                    //new WindowController(chatId, username1);
+                    //new ChatWindow(chatId, username2);
+                    //controller.initializeWindow(chatId, currentUser.getUsername()); 
+                });
+                
+            } else {
+                showAlert("Error", "Please enter both usernames.");
+            }
+            ustVbox.getChildren().clear();
+            vboxscr.getChildren().clear();
+            vboxscr.getChildren().add(panel);
+        
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 }
+private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
     
 }

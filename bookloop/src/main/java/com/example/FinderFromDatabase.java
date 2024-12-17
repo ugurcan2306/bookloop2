@@ -1,8 +1,10 @@
 package com.example;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
@@ -11,6 +13,7 @@ import client.FireStoreHelper;
 
 public class FinderFromDatabase {
     private static User userToFind=null;
+    private static TradeRequest tradeReqToFind=null;
     private static Book bookToFind=null;
 
     public static User UserFinder(String username){
@@ -29,6 +32,38 @@ public class FinderFromDatabase {
         }
         return userToFind;
     }
+    public static TradeRequest TradeReqFinder(String sender, String receiver) {
+    TradeRequest tradeReqToFind = null;
+    try {
+        Firestore db = FireStoreHelper.getFirestore();
+        QuerySnapshot querySnapshot = db.collection("tradeRequests")
+            .whereEqualTo("TradeRequest.receivername", receiver)
+            .whereEqualTo("TradeRequest.sendername", sender)
+            .get()
+            .get(); // Blocking call
+
+        if (querySnapshot != null && !querySnapshot.isEmpty()) {
+            DocumentSnapshot document = querySnapshot.getDocuments().get(0);
+            Map<String, Object> tradeRequestMap = (Map<String, Object>) document.get("TradeRequest");
+            
+            if (tradeRequestMap != null) {
+                String sendername = (String) tradeRequestMap.get("sendername");
+                String receivername = (String) tradeRequestMap.get("receivername");
+                tradeReqToFind = new TradeRequest(sendername, receivername);
+            }
+        } else {
+            System.out.println("No trade request found for the given sender and receiver.");
+        }
+    } catch (Exception e) {
+        System.err.println("Failed to retrieve trade request: " + e.getMessage());
+        e.printStackTrace();
+    }
+    return tradeReqToFind;
+}
+
+    
+    
+    
     public static User getUserToFind() {
         return userToFind;
     }
@@ -62,4 +97,6 @@ public class FinderFromDatabase {
         }
         return newarrr;
     }
+
+    
 }
