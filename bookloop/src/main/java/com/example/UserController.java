@@ -1,9 +1,13 @@
 package com.example;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
+import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
+import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.Firestore;
 
 import client.FireStoreHelper;
@@ -84,7 +88,7 @@ public class UserController {
     private ScrollPane scrPane;
 
     @FXML
-    void initialize() {
+    void initialize() throws IOException {
         assert addToTradebtn != null : "fx:id=\"addToTradebtn\" was not injected: check your FXML file 'UserController.fxml'.";
         assert addbookPane != null : "fx:id=\"addbookPane\" was not injected: check your FXML file 'UserController.fxml'.";
         assert anchorpane1 != null : "fx:id=\"anchorpane1\" was not injected: check your FXML file 'UserController.fxml'.";
@@ -106,8 +110,44 @@ public class UserController {
         assert markeVbox != null : "fx:id=\"markeVbox\" was not injected: check your FXML file 'UserController.fxml'.";
         assert willTradeBoooksPane != null : "fx:id=\"willTradeBoooksPane\" was not injected: check your FXML file 'UserController.fxml'.";
         assert yourBooks != null : "fx:id=\"yourBooks\" was not injected: check your FXML file 'UserController.fxml'.";
-
+        loadBooksFromFirestore();
     }
+  private void loadBooksFromFirestore() throws IOException {
+    Firestore db = FireStoreHelper.getFirestore();
+    DocumentReference userRef = db.collection("users").document(currentUser.getUsername());
+
+    ApiFuture<DocumentSnapshot> future = userRef.get(); // Firestore isteğini başlat
+    try {
+        DocumentSnapshot document = future.get(); // Bloklu olarak sonucu al
+        if (document.exists()) {
+            // "BookstoTrade" verilerini yükle
+            ArrayList<Map<String, Object>> booksToTrade = (ArrayList<Map<String, Object>>) document.get("BookstoTrade");
+            if (booksToTrade != null) {
+                for (Map<String, Object> bookData : booksToTrade) {
+                    String bookName = (String) bookData.get("name");
+                    String author = (String) bookData.get("author");
+                    String genre = (String) bookData.get("genre");
+                    Book book = new Book(bookName, author, genre);
+                    addBook2TradeV(book);
+                }
+            }
+
+            // "MarkedasRead" verilerini yükle
+            ArrayList<Map<String, Object>> markedAsRead = (ArrayList<Map<String, Object>>) document.get("MarkedasRead");
+            if (markedAsRead != null) {
+                for (Map<String, Object> bookData : markedAsRead) {
+                    String bookName = (String) bookData.get("name");
+                    String author = (String) bookData.get("author");
+                    String genre = (String) bookData.get("genre");
+                    Book book = new Book(bookName, author, genre);
+                    addBook2Mark(book);
+                }
+            }
+        }
+    } catch (InterruptedException | ExecutionException e) {
+        e.printStackTrace();
+    }
+}
 
     @FXML
     void addTrade(ActionEvent event) throws Exception {
@@ -121,6 +161,7 @@ public class UserController {
         userRef.update("BookstoTrade", currentUser.getBookstoTrade()).get();
         Book book = new Book(bookname, author, genre);
         addBook2TradeV(book);
+       
     }
 
     @FXML
@@ -138,6 +179,7 @@ public class UserController {
         
     }
     public void addBook2TradeV(Book book) {
+
         
         HBox bookSection = new HBox(10); // Spacing of 10 between elements
 
@@ -154,9 +196,25 @@ public class UserController {
 
         // Add event handling (optional)
         removeBookButton.setOnAction(event -> {
-            addTradeVbox.getChildren().remove(bookSection);
+            addTradeVbox.getChildren().remove(bookSection); // UI'dan kaldır
+            currentUser.getBookstoTrade().remove(book); // Modelden kaldır
+            
+            
+            // Firestore güncellemesi
+            Firestore db;
+            try {
+                db = FireStoreHelper.getFirestore();
+                DocumentReference userRef = db.collection("users").document(currentUser.getUsername());
+        
+                // Güncelleme işlemi
+                userRef.update("BookstoTrade", currentUser.getBookstoTrade()).get();
+                ;
+            } catch (IOException | InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+               
+            }
         });
-
+        
         // Add elements to the HBox
         bookSection.getChildren().addAll(avatar, bookNameLabel, removeBookButton);
         /*String listContent = String.join("\n", bookSection);
@@ -189,6 +247,19 @@ public class UserController {
         // Add event handling (optional)
         removeBookButton.setOnAction(event -> {
             markeVbox.getChildren().remove(bookSection);
+            currentUser.getMarkedasRead().remove(book); 
+            
+            Firestore db;
+            try {
+                db = FireStoreHelper.getFirestore();
+                DocumentReference userRef = db.collection("users").document(currentUser.getUsername());
+        
+                // Güncelleme işlemi
+                userRef.update("MarkedasRead", currentUser.getMarkedasRead()).get();
+            } catch (IOException | InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+               
+            }
         });
 
         // Add elements to the HBox

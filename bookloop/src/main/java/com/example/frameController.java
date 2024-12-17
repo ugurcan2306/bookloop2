@@ -29,6 +29,7 @@ public class frameController {
     void initialize(String fxml) {
         //friendsChatsPane.getChildren().clear();
         showFriendChat(fxml);
+  
         /*try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("UserController.fxml"));
             VBox panel = loader.load();

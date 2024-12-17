@@ -24,6 +24,7 @@
             <version>9.1.1</version>
         </dependency>
 
+        
         <!-- Google Cloud Firestore -->
         <dependency>
             <groupId>com.google.cloud</groupId>
@@ -104,11 +105,6 @@
             </goals>
         </execution>
     </executions>
-            <configuration>
-                <mainClass>chat.ChatAppMain</mainClass>
-                  <javafx.version>21.0.5</javafx.version>
-                <launcher>app</launcher>
-            </configuration>
         </plugin>
 
     </plugins>

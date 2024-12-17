@@ -1,9 +1,11 @@
 package com.example;
 //import java.awt.print.Book;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.Firestore;
+import com.google.firestore.v1.StructuredAggregationQuery.Aggregation.Count;
 
 import client.FireStoreHelper;
 
@@ -19,6 +21,8 @@ public class User {
     private ArrayList<Book> MarkedasRead ;
     private String City;
     private String Country;
+    private ArrayList<TradeRequest> ReceivedTradeRequests;
+    private ArrayList<TradeRequest> SentTradeRequests;
     
     
 
@@ -36,8 +40,9 @@ public class User {
     this.MarkedasRead= new ArrayList<>();
     this.Friends= new ArrayList<User>();
     this.GroupChat=new ArrayList<>();
-    this.OneToOneChat= new ArrayList<>(); 
-
+    this.OneToOneChat= new ArrayList<>();
+    this.ReceivedTradeRequests= new ArrayList<>();
+    this.SentTradeRequests= new ArrayList<>(); 
     }
     User(){
         this.BookstoTrade=new ArrayList<Book>();
@@ -45,6 +50,8 @@ public class User {
         this.Friends= new ArrayList<User>();
         this.GroupChat=new ArrayList<>();
         this.OneToOneChat= new ArrayList<>();
+        this.ReceivedTradeRequests= new ArrayList<>();
+        this.SentTradeRequests= new ArrayList<>(); 
     }
     public void markedAsRead(String name, String author,String genre){
         Book book= createABook(name, author, genre);
@@ -169,6 +176,35 @@ public class User {
     public void addToFriends(User user){
         Friends.add(user);
     }
+   public ArrayList<TradeRequest> getReceivedTradeRequests() {
+       return ReceivedTradeRequests;
+   }
+   public ArrayList<TradeRequest> getSentTradeRequests() {
+       return SentTradeRequests;
+   }
+   public void setReceivedTradeRequests(ArrayList<TradeRequest> receivedTradeRequests) {
+       ReceivedTradeRequests = receivedTradeRequests;
+   }
+   public void setSentTradeRequests(ArrayList<TradeRequest> sentTradeRequests) {
+       SentTradeRequests = sentTradeRequests;
+   }
+   
+    @Override
+public boolean equals(Object obj) {
+    if (this == obj) return true; // Same object check
+    if (obj == null || getClass() != obj.getClass()) return false; // Null or different class check
     
+    User user = (User) obj; // Cast the object to User
+    return Username.equals(user.Username) && // Username comparison
+           Email.equals(user.Email) && // Email comparison
+           City.equals(user.City) && 
+           Password.equals(user.Password)&&
+           Country.equals(user.Country); 
+}
+@Override
+public int hashCode() {
+   return Objects.hash(Username, Email, City,Password,Country);
+}
+
     
 }

@@ -36,19 +36,14 @@ public class ReceviedTradeController {
     @FXML
     void AcceptButtonPressed1(ActionEvent event) {
         try {
-            // Close the current window
-            Stage currentStage = (Stage) acceptButtonForUser1.getScene().getWindow();
-            currentStage.close();
+        pane1.getChildren().clear();
 
         // Load the new FXML file for the different interface
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/bookloop/server.fxml"));
-        Parent root = loader.load();
-
-        // Set up the new stage
-        Stage newStage = new Stage();
-        newStage.setScene(new Scene(root, 600, 400));
-        newStage.setTitle("Server!");
-        newStage.show();
+        Parent newContent = loader.load();
+    
+        // Add the new content to pane1
+        pane1.getChildren().add(newContent);
         } catch (Exception e) {
             e.printStackTrace();  // Handle any exceptions that occur during loading
         }

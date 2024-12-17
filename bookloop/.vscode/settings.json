@@ -1,4 +1,9 @@
 {
     "java.configuration.updateBuildConfiguration": "interactive",
+<<<<<<< Updated upstream
+=======
+    "java.dependency.packagePresentation": "hierarchical",
+    "java.debug.settings.onBuildFailureProceed": true,
+>>>>>>> Stashed changes
     "java.compile.nullAnalysis.mode": "automatic"
 }
